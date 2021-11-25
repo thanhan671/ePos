@@ -57,16 +57,16 @@ public class AddProductTypeActivity extends AppCompatActivity {
         btnAddPT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
                     int id = Integer.parseInt(edtId.getText().toString().trim());
                     String name = edtName.getText().toString().trim();
 
-                    ProductType pt = new ProductType(id, name);
-
-                    onClickAddPT(pt);
-                } catch (Exception e) {
-                    Toast.makeText(AddProductTypeActivity.this, "Vui lòng nhập tên loại Sản phẩm", Toast.LENGTH_SHORT).show();
-                }
+                    if (name.isEmpty()) {
+                        Toast.makeText(AddProductTypeActivity.this, "Vui lòng nhập tên loại Sản phẩm", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        ProductType pt = new ProductType(id, name);
+                        onClickAddPT(pt);
+                    }
             }
         });
 

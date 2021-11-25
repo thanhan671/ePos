@@ -27,6 +27,6 @@ public class Admin_MainActivity extends AppCompatActivity {
     }
 
     private void matching() {
-        btnLoaiHang = (Button) findViewById(R.id.hanghoa);
+        btnLoaiHang = (Button) findViewById(R.id.danhmuc);
     }
 }
