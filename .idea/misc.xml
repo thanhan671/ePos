@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/ProjectFinal/ePos/app/src/main/res/layout/activity_admin_main.xml" value="0.259375" />
+        <entry key="..\:/ProjectFinal/ePos/app/src/main/res/layout/activity_import_main.xml" value="0.2453125" />
+        <entry key="..\:/ProjectFinal/ePos/app/src/main/res/layout/activity_import_product.xml" value="0.259375" />
+        <entry key="..\:/ProjectFinal/ePos/app/src/main/res/layout/activity_scan_product.xml" value="0.259375" />
         <entry key="..\:/ProjectFinal/ePos/app/src/main/res/layout/activity_staff_main.xml" value="0.259375" />
       </map>
     </option>

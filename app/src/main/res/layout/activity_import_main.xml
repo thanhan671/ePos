@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Staff_MainActivity">
+    tools:context=".Import_MainActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -38,29 +38,22 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_nv_nhaphang"
+                    android:id="@+id/btn_quetnhap"
                     android:layout_width="250dp"
                     android:layout_height="70dp"
-                    android:text="NHẬP HÀNG"
+                    android:text="QUÉT MÃ HÀNG"
                     android:backgroundTint="#EA8484"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
                 <Button
-                    android:id="@+id/btn_nv_xuathang"
+                    android:id="@+id/btn_phieunhap"
                     android:layout_width="250dp"
                     android:layout_height="70dp"
-                    android:text="XUẤT HÀNG"
+                    android:text="PHIẾU NHẬP"
                     android:backgroundTint="#EA8484"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
-                <Button
-                    android:id="@+id/btn_nv_thongke"
-                    android:layout_width="250dp"
-                    android:layout_height="70dp"
-                    android:text="THỐNG KÊ"
-                    android:backgroundTint="#EA8484"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"/>
+
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
