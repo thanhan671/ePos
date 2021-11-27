@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EPos">
         <activity
+            android:name=".UpdateImport"
+            android:exported="false" />
+        <activity
             android:name=".ListImport"
             android:exported="false" />
         <activity
@@ -39,7 +42,7 @@
             android:name=".CaptureAct"
             android:screenOrientation="fullSensor"
             android:stateNotNeeded="true"
-            android:windowSoftInputMode="stateAlwaysHidden"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden" />
     </application>
 
 </manifest>
