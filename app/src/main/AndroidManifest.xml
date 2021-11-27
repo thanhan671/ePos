@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EPos">
-        <activity android:name=".AddProductTypeActivity"></activity>
+        <activity
+            android:name=".add_admin_ac"
+            android:exported="false" />
+        <activity
+            android:name=".AdminAC"
+            android:exported="false" />
+        <activity android:name=".AddProductTypeActivity" />
         <activity
             android:name=".Staff_MainActivity"
             android:exported="false" />

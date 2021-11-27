@@ -5,6 +5,14 @@
       <map>
         <entry key="..\:/ProjectFinal/ePos/app/src/main/res/layout/activity_admin_main.xml" value="0.259375" />
         <entry key="..\:/ProjectFinal/ePos/app/src/main/res/layout/activity_staff_main.xml" value="0.259375" />
+        <entry key="..\:/ePos/app/src/main/res/layout/activity_add_admin.xml" value="0.26992753623188404" />
+        <entry key="..\:/ePos/app/src/main/res/layout/activity_add_product_type.xml" value="0.276268115942029" />
+        <entry key="..\:/ePos/app/src/main/res/layout/activity_admin.xml" value="0.26992753623188404" />
+        <entry key="..\:/ePos/app/src/main/res/layout/activity_admin_main.xml" value="0.276268115942029" />
+        <entry key="..\:/ePos/app/src/main/res/layout/activity_staff_main.xml" value="0.276268115942029" />
+        <entry key="..\:/ePos/app/src/main/res/layout/item_pt.xml" value="0.276268115942029" />
+        <entry key="..\:/ePos/app/src/main/res/layout/layout_dialog_edit_pt.xml" value="0.276268115942029" />
+        <entry key="..\:/ePos/app/src/main/res/menu/main_menuac.xml" value="0.3875" />
       </map>
     </option>
   </component>
