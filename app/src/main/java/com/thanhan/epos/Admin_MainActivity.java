@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class Admin_MainActivity extends AppCompatActivity {
-    private Button btnLoaiHang;
+    private Button btnLoaiHang, btnAC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +24,18 @@ public class Admin_MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnAC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Admin_MainActivity.this, StaffAcountActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void matching() {
+
         btnLoaiHang = (Button) findViewById(R.id.danhmuc);
+        btnAC = (Button) findViewById(R.id.taikhoan);
     }
 }
