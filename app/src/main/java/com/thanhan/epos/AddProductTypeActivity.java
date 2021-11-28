@@ -250,7 +250,11 @@ public class AddProductTypeActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                maxId = (int) snapshot.getChildrenCount();
+                for (DataSnapshot item : snapshot.getChildren()) {
+                    int temp = Integer.parseInt(item.getKey());
+                    if (temp > maxId)
+                        maxId = temp;
+                }
                 edtId.setText(String.valueOf(maxId + 1));
                 edtId.setEnabled(false);
             }
