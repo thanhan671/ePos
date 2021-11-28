@@ -4,41 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".add_admin_ac">
-
-    <Button
-        android:id="@+id/btn_ac_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="78dp"
-        android:layout_marginEnd="86dp"
-        android:layout_marginBottom="16dp"
-        android:text="HỦY"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/btn_ac_add" />
-
-    <Button
-        android:id="@+id/btn_ac_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginBottom="16dp"
-        android:text="Thêm"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    tools:context=".EditStaffAcountActivity">
 
     <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="280dp"
-        android:layout_height="518dp"
+        android:id="@+id/scrV_editAcc"
+        android:layout_width="289dp"
+        android:layout_height="468dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,7 +22,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/et_ac_id"
+                android:id="@+id/et_editAcc_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -55,7 +31,7 @@
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/et_ac_name"
+                android:id="@+id/et_editAcc_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -64,7 +40,7 @@
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/et_ac_adress"
+                android:id="@+id/et_editAcc_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -73,7 +49,7 @@
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/et_ac_gender"
+                android:id="@+id/et_editAcc_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -82,7 +58,7 @@
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/et_ac_mobile"
+                android:id="@+id/et_editAcc_mobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -91,7 +67,7 @@
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/et_ac_email"
+                android:id="@+id/et_editAcc_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -100,7 +76,7 @@
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/et_ac_username"
+                android:id="@+id/et_editAcc_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -109,13 +85,49 @@
                 android:textSize="24sp" />
 
             <EditText
-                android:id="@+id/et_ac_password"
+                android:id="@+id/et_editAcc_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Mật khẩu"
                 android:inputType="textPersonName"
                 android:textSize="24sp" />
+
         </LinearLayout>
     </ScrollView>
+
+    <Button
+        android:id="@+id/btn_editAcc_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="48dp"
+        android:text="Hủy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_editAcc_update" />
+
+    <Button
+        android:id="@+id/btn_editAcc_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="48dp"
+        android:layout_weight="1"
+        android:text="Sửa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btn_editAcc_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="48dp"
+        android:text="Xóa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_editAcc_cancel"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

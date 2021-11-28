@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.thanhan.epos">
+    package="com.thanhan.epos" >
 
     <application
         android:allowBackup="true"
@@ -8,20 +8,21 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.EPos">
+        android:theme="@style/Theme.EPos" >
         <activity
-            android:name=".add_admin_ac"
+            android:name=".EditStaffAcountActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminAC"
+            android:name=".StaffAcountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddAcountStaffActivity"
             android:exported="false" />
         <activity android:name=".AddProductTypeActivity" />
-        <activity
-            android:name=".Staff_MainActivity"
-            android:exported="false" />
+        <activity android:name=".Staff_MainActivity" />
         <activity
             android:name=".Admin_MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

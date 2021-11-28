@@ -27,7 +27,7 @@ public class Admin_MainActivity extends AppCompatActivity {
         btnAC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Admin_MainActivity.this,AdminAC.class);
+                Intent intent = new Intent(Admin_MainActivity.this, StaffAcountActivity.class);
                 startActivity(intent);
             }
         });

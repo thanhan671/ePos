@@ -13,21 +13,23 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class add_admin_ac extends AppCompatActivity {
-
-    EditText id,name,gender,email,address,mobile,username,password;
-    Button add,cancel;
-    Integer i_id;
+public class AddAcountStaffActivity extends AppCompatActivity {
+    private EditText id, name, gender, email, address, mobile, username, password;
+    private Button add, cancel;
+    private int i_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_admin);
+        setContentView(R.layout.activity_add_acount_staff);
+
         matching();
+
         Intent intent = getIntent();
-        i_id=intent.getIntExtra("ID",-1);
+        i_id = intent.getIntExtra("ID", -1);
         id.setEnabled(false);
         id.setText(String.valueOf(i_id));
+
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,33 +57,30 @@ public class add_admin_ac extends AppCompatActivity {
                     reference.child(sid).child("matkhau").setValue(spassword);
                     Toast.makeText(getApplicationContext(), "Thêm thành công tài khoản" + sid, Toast.LENGTH_LONG).show();
                     finish();
-                }catch (Exception e){
-                    Log.d("Error add",e.toString());
+                } catch (Exception e) {
+                    Log.d("Error add", e.toString());
                 }
-
-
             }
         });
     }
 
     private void matching() {
 
-        id = (EditText) findViewById(R.id.et_ac_id);
-        name = (EditText) findViewById(R.id.et_ac_name);
-        gender = (EditText) findViewById(R.id.et_ac_gender);
-        email = (EditText) findViewById(R.id.et_ac_email);
-        address = (EditText) findViewById(R.id.et_ac_adress);
-        mobile = (EditText) findViewById(R.id.et_ac_mobile);
-        username = (EditText) findViewById(R.id.et_ac_username);
-        password = (EditText) findViewById(R.id.et_ac_password);
-        add = (Button) findViewById(R.id.btn_ac_add);
-        cancel = (Button)  findViewById(R.id.btn_ac_cancel);
+        id = (EditText) findViewById(R.id.et_addAcc_id);
+        name = (EditText) findViewById(R.id.et_addAcc_name);
+        gender = (EditText) findViewById(R.id.et_addAcc_gender);
+        email = (EditText) findViewById(R.id.et_addAcc_email);
+        address = (EditText) findViewById(R.id.et_addAcc_adress);
+        mobile = (EditText) findViewById(R.id.et_addAcc_mobile);
+        username = (EditText) findViewById(R.id.et_addAcc_username);
+        password = (EditText) findViewById(R.id.et_addAcc_password);
+        add = (Button) findViewById(R.id.btn_addAcc_add);
+        cancel = (Button) findViewById(R.id.btn_addAcc_cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
-
     }
 }
