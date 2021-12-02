@@ -206,6 +206,15 @@
             android:backgroundTint="#EA8484"
             android:textColor="@color/black"
             android:textStyle="bold"/>
-
+        <TextView
+            android:id="@+id/tv_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sldayne"/>
+        <TextView
+            android:id="@+id/tv_lay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="them"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

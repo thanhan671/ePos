@@ -27,7 +27,7 @@ public class UpdateImport extends AppCompatActivity{
     Button capnhat, xoa, huy;
     EditText code, tenhang, soluong, ngaynhap, ngaysua, thanhtien;
     String i_id;
-    TextView sophieu;
+    TextView sophieu, temp,lay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +59,7 @@ public class UpdateImport extends AppCompatActivity{
         String codePhieu = code.getText().toString().trim();
         String codeHang = hanghoa.child(codePhieu).getKey();
         DatabaseReference dbtonkho = database.getReference().child("HangHoa").child(codeHang).child("TonKho");
+
         if (codePhieu.equals(codeHang)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(UpdateImport.this);
             builder.setTitle("Bạn có muốn xóa phiếu nhập này?");
@@ -68,7 +69,10 @@ public class UpdateImport extends AppCompatActivity{
                     dbtonkho.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            Toast.makeText(UpdateImport.this, snapshot.getValue().toString() ,Toast.LENGTH_LONG).show();
+                            Integer iton = Integer.parseInt(snapshot.getValue().toString());
+                            Integer ixoa = Integer.parseInt(soluong.getText().toString());
+                            temp.setText(String.valueOf(iton-ixoa));
+
                         }
 
                         @Override
@@ -76,7 +80,6 @@ public class UpdateImport extends AppCompatActivity{
 
                         }
                     });
-
 //                    reference.child(String.valueOf(i_id)).removeValue();
                 }
             }).setNegativeButton("Không", new DialogInterface.OnClickListener() {
@@ -132,5 +135,7 @@ public class UpdateImport extends AppCompatActivity{
         ngaynhap = (EditText) findViewById(R.id.edt_nhap_ngaynhap);
         ngaysua = (EditText) findViewById(R.id.edt_nhap_ngaysua);
         thanhtien = (EditText) findViewById(R.id.edt_nhap_thanhtien);
+        temp = (TextView) findViewById(R.id.tv_temp);
+        lay = (TextView) findViewById(R.id.tv_lay);
     }
 }
