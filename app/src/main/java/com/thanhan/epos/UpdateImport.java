@@ -65,7 +65,19 @@ public class UpdateImport extends AppCompatActivity{
             builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    reference.child(String.valueOf(i_id)).removeValue();
+                    dbtonkho.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            Toast.makeText(UpdateImport.this, snapshot.getValue().toString() ,Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+//                    reference.child(String.valueOf(i_id)).removeValue();
                 }
             }).setNegativeButton("Không", new DialogInterface.OnClickListener() {
                 @Override
@@ -110,15 +122,15 @@ public class UpdateImport extends AppCompatActivity{
         });
     }
     private void matching() {
-        capnhat = findViewById(R.id.btn_nhap_capnhat);
-        xoa = findViewById(R.id.btn_nhap_xoa);
-        huy = findViewById(R.id.btn_nhap_huy);
-        sophieu = findViewById(R.id.tv_phieunhap);
-        code = findViewById(R.id.edt_nhap_code);
-        tenhang = findViewById(R.id.edt_nhap_tenhang);
-        soluong = findViewById(R.id.edt_nhap_soluong);
-        ngaynhap = findViewById(R.id.edt_nhap_ngaynhap);
-        ngaysua = findViewById(R.id.edt_nhap_ngaysua);
-        thanhtien = findViewById(R.id.edt_nhap_thanhtien);
+        capnhat = (Button) findViewById(R.id.btn_nhap_capnhat);
+        xoa = (Button) findViewById(R.id.btn_nhap_xoa);
+        huy = (Button) findViewById(R.id.btn_nhap_huy);
+        sophieu = (TextView) findViewById(R.id.tv_phieunhap);
+        code = (EditText) findViewById(R.id.edt_nhap_code);
+        tenhang = (EditText) findViewById(R.id.edt_nhap_tenhang);
+        soluong = (EditText) findViewById(R.id.edt_nhap_soluong);
+        ngaynhap = (EditText) findViewById(R.id.edt_nhap_ngaynhap);
+        ngaysua = (EditText) findViewById(R.id.edt_nhap_ngaysua);
+        thanhtien = (EditText) findViewById(R.id.edt_nhap_thanhtien);
     }
 }

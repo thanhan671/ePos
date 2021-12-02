@@ -206,5 +206,6 @@
             android:backgroundTint="#EA8484"
             android:textColor="@color/black"
             android:textStyle="bold"/>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
