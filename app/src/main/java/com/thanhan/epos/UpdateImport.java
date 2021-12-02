@@ -1,14 +1,18 @@
 package com.thanhan.epos;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
-public class UpdateImport extends AppCompatActivity {
+public class UpdateImport extends AppCompatActivity{
 
     Button capnhat, xoa, huy;
     EditText code, tenhang, soluong, ngaynhap, ngaysua, thanhtien;
@@ -33,7 +37,50 @@ public class UpdateImport extends AppCompatActivity {
         matching();
 
         getContactDetail();
+
+        huy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        xoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteImportBill();
+            }
+        });
     }
+    public void deleteImportBill(){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("PhieuNhap");
+        DatabaseReference hanghoa = database.getReference("HangHoa");
+        String codePhieu = code.getText().toString().trim();
+        String codeHang = hanghoa.child(codePhieu).getKey();
+        DatabaseReference dbtonkho = database.getReference().child("HangHoa").child(codeHang).child("TonKho");
+        if (codePhieu.equals(codeHang)) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(UpdateImport.this);
+            builder.setTitle("Bạn có muốn xóa phiếu nhập này?");
+            builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    reference.child(String.valueOf(i_id)).removeValue();
+                }
+            }).setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }else {
+            Toast.makeText(UpdateImport.this, "Đã có lỗi!", Toast.LENGTH_LONG).show();
+        }
+    }
+
     private void getContactDetail() {
         Intent intent = getIntent();
         i_id = intent.getStringExtra("ID");
