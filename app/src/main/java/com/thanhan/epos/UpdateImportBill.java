@@ -22,14 +22,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class UpdateImportBill extends AppCompatActivity{
 
     Button capnhat, xoa, huy;
     EditText code, tenhang, soluong, ngaynhap, ngaysua, thanhtien;
     String i_id;
-    TextView sophieu, temp;
+    TextView sophieu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,13 @@ public class UpdateImportBill extends AppCompatActivity{
         matching();
 
         getContactDetail();
+
+        capnhat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateImportBill();
+            }
+        });
 
         huy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +64,67 @@ public class UpdateImportBill extends AppCompatActivity{
             }
         });
     }
+
+    private void updateImportBill() {
+        try {
+            String ssoluong = soluong.getText().toString().trim();
+            String sngaysua = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference reference = database.getReference("PhieuNhap");
+            DatabaseReference hanghoa = database.getReference("HangHoa");
+            String codePhieu = code.getText().toString().trim();
+            String codeHang = hanghoa.child(codePhieu).getKey();
+            DatabaseReference dbtonkho = database.getReference("HangHoa").child(codeHang).child("TonKho");
+
+            dbtonkho.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (!task.isSuccessful()) {
+                        Log.e("firebase", "Error getting data", task.getException());
+                    }
+                    else {
+                        Integer iton = Integer.parseInt((task.getResult().getValue()).toString());
+                        Integer icapnhat = Integer.parseInt(soluong.getText().toString().trim());
+                        reference.child(String.valueOf(i_id)).child("soLuong").get().addOnCompleteListener(
+                                new OnCompleteListener<DataSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                        Integer idau = Integer.parseInt((task.getResult().getValue()).toString());
+                                        Integer idoi = idau-icapnhat;
+                                        dbtonkho.setValue(String.valueOf(iton-idoi));
+                                    }
+                                }
+                        );
+                    }
+                }
+            });
+
+            DatabaseReference dbgia = database.getReference("HangHoa").child(codeHang).child("donGiaNhap");
+            dbgia.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (!task.isSuccessful()) {
+                        Log.e("firebase", "Error getting data", task.getException());
+                    }
+                    else {
+                        Integer igia = Integer.parseInt((task.getResult().getValue()).toString());
+                        Integer icapnhat = Integer.parseInt(soluong.getText().toString().trim());
+                        reference.child(String.valueOf(i_id)).child("thanhTien").setValue(String.valueOf(igia*icapnhat));
+                        reference.child(String.valueOf(i_id)).child("soLuong").setValue(ssoluong);
+                        reference.child(String.valueOf(i_id)).child("ngayThayDoi").setValue(sngaysua);
+                    }
+                }
+            });
+
+            Toast.makeText(UpdateImportBill.this,
+                    "Cập nhật thành công!", Toast.LENGTH_LONG).show();
+            finish();
+        }catch (Exception e){
+            Log.d("error update", e.toString());
+        }
+    }
+
     public void deleteImportBill(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("PhieuNhap");
@@ -139,6 +210,5 @@ public class UpdateImportBill extends AppCompatActivity{
         ngaynhap = (EditText) findViewById(R.id.edt_nhap_ngaynhap);
         ngaysua = (EditText) findViewById(R.id.edt_nhap_ngaysua);
         thanhtien = (EditText) findViewById(R.id.edt_nhap_thanhtien);
-        temp = (TextView) findViewById(R.id.tv_temp);
     }
 }
