@@ -15,13 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EPos">
         <activity
-            android:name=".UpdateImport"
+            android:name=".UpdateImportBill"
             android:exported="false" />
         <activity
             android:name=".ListImport"
             android:exported="false" />
         <activity
-            android:name=".Import_MainActivity"
+            android:name=".ImportBill_MainActivity"
             android:exported="false" />
         <activity
             android:name=".ScanProductCode"

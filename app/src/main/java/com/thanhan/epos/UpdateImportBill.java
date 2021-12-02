@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
-public class UpdateImport extends AppCompatActivity{
+public class UpdateImportBill extends AppCompatActivity{
 
     Button capnhat, xoa, huy;
     EditText code, tenhang, soluong, ngaynhap, ngaysua, thanhtien;
@@ -34,7 +34,7 @@ public class UpdateImport extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_import);
+        setContentView(R.layout.activity_update_import_bill);
 
         matching();
 
@@ -63,7 +63,7 @@ public class UpdateImport extends AppCompatActivity{
         DatabaseReference dbtonkho = database.getReference().child("HangHoa").child(codeHang).child("TonKho");
 
         if (codePhieu.equals(codeHang)) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(UpdateImport.this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(UpdateImportBill.this);
             builder.setTitle("Bạn có muốn xóa phiếu nhập này?");
             builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                 @Override
@@ -96,7 +96,7 @@ public class UpdateImport extends AppCompatActivity{
             AlertDialog dialog = builder.create();
             dialog.show();
         }else {
-            Toast.makeText(UpdateImport.this, "Đã có lỗi!", Toast.LENGTH_LONG).show();
+            Toast.makeText(UpdateImportBill.this, "Đã có lỗi!", Toast.LENGTH_LONG).show();
         }
     }
 

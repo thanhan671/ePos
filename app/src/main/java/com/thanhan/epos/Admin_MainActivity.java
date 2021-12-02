@@ -16,7 +16,7 @@ public class Admin_MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_admin_nhaphang).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Admin_MainActivity.this, Import_MainActivity.class);
+                Intent intent = new Intent(Admin_MainActivity.this, ImportBill_MainActivity.class);
                 startActivity(intent);
             }
         });

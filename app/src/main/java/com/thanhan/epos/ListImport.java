@@ -58,7 +58,7 @@ public class ListImport extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String data = adapter.getItem(position);
                 String key = data.split("\n")[0];
-                Intent intent = new Intent(getApplicationContext(),UpdateImport.class);
+                Intent intent = new Intent(getApplicationContext(), UpdateImportBill.class);
                 intent.putExtra("ID",key);
                 startActivity(intent);
             }
