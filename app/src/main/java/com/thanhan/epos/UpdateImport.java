@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,7 +29,7 @@ public class UpdateImport extends AppCompatActivity{
     Button capnhat, xoa, huy;
     EditText code, tenhang, soluong, ngaynhap, ngaysua, thanhtien;
     String i_id;
-    TextView sophieu, temp,lay;
+    TextView sophieu, temp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,21 +68,23 @@ public class UpdateImport extends AppCompatActivity{
             builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    dbtonkho.addValueEventListener(new ValueEventListener() {
+                    dbtonkho.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                         @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            Integer iton = Integer.parseInt(snapshot.getValue().toString());
-                            Integer ixoa = Integer.parseInt(soluong.getText().toString());
-                            temp.setText(String.valueOf(iton-ixoa));
-
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
+                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                            if (!task.isSuccessful()) {
+                                Log.e("firebase", "Error getting data", task.getException());
+                            }
+                            else {
+                                Integer iton = Integer.parseInt((task.getResult().getValue()).toString());
+                                Integer ixoa = Integer.parseInt(soluong.getText().toString().trim());
+                                dbtonkho.setValue(String.valueOf(iton-ixoa));
+                                reference.child(String.valueOf(i_id)).removeValue();
+                                Toast.makeText(getApplicationContext(),"Xóa thành công!",Toast.LENGTH_LONG).show();
+                                finish();
+                            }
                         }
                     });
-//                    reference.child(String.valueOf(i_id)).removeValue();
+
                 }
             }).setNegativeButton("Không", new DialogInterface.OnClickListener() {
                 @Override
@@ -136,6 +140,5 @@ public class UpdateImport extends AppCompatActivity{
         ngaysua = (EditText) findViewById(R.id.edt_nhap_ngaysua);
         thanhtien = (EditText) findViewById(R.id.edt_nhap_thanhtien);
         temp = (TextView) findViewById(R.id.tv_temp);
-        lay = (TextView) findViewById(R.id.tv_lay);
     }
 }
