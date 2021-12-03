@@ -13,14 +13,14 @@ import java.util.List;
 
 public class PTAdapter extends RecyclerView.Adapter<PTAdapter.PTViewHolder> {
     private List<ProductType> mPTList;
-    private iClickListener mIClickListener;
+    private IClickPTListener mIClickListener;
 
-    public interface iClickListener {
-        void onClickEditItem(ProductType pt);
-        void onClickDeleteItem(ProductType pt);
+    public interface IClickPTListener {
+        void onClickEditPT(ProductType pt);
+        void onClickDeletePT(ProductType pt);
     }
 
-    public PTAdapter(List<ProductType> mPTList, iClickListener listener) {
+    public PTAdapter(List<ProductType> mPTList, IClickPTListener listener) {
         this.mPTList = mPTList;
         this.mIClickListener = listener;
     }
@@ -44,14 +44,14 @@ public class PTAdapter extends RecyclerView.Adapter<PTAdapter.PTViewHolder> {
         holder.btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mIClickListener.onClickEditItem(pt);
+                mIClickListener.onClickEditPT(pt);
             }
         });
 
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mIClickListener.onClickDeleteItem(pt);
+                mIClickListener.onClickDeletePT(pt);
             }
         });
     }
