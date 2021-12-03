@@ -8,28 +8,36 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 public class ScanProductCode extends AppCompatActivity implements View.OnClickListener {
 
-    Button themsp, quetmaBtn;
+    Button  quetmaBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_product);
 
-        matching();
+        quetmaBtn = findViewById(R.id.btn_quetma);
+
+        findViewById(R.id.btn_scan_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
         quetmaBtn.setOnClickListener(this);
     }
 
-    private void matching() {
-        themsp = findViewById(R.id.btn_themsp);
-        quetmaBtn = findViewById(R.id.btn_quetma);
-    }
 
     @Override
     public void onClick(View v) {
@@ -51,13 +59,27 @@ public class ScanProductCode extends AppCompatActivity implements View.OnClickLi
             if (result.getContents() != null){
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage(result.getContents());
-                builder.setTitle("Kết quả Scan");
-                builder.setPositiveButton("Quét lại", new DialogInterface.OnClickListener() {
+                builder.setTitle("Code sản phẩm");
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference hanghoa = database.getReference("HangHoa");
+
+                String macode = result.getContents();
+                String codeHang = hanghoa.child(macode).getKey();
+
+                builder.setPositiveButton("Thêm phiếu nhập", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        quetma();
+                        if (macode.equals(codeHang)){
+                            Intent intent = new Intent(getApplicationContext(), ImportBill.class);
+                            intent.putExtra("code", macode);
+                            startActivity(intent);
+                        }else {
+                            Toast.makeText(getApplicationContext(),
+                                    "Sản phẩm chưa có sẵn trong kho!",Toast.LENGTH_LONG).show();
+                        }
                     }
-                }).setNegativeButton("Hoàn thành", new DialogInterface.OnClickListener() {
+                }).setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finish();

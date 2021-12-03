@@ -41,7 +41,7 @@ public class UpdateImportBill extends AppCompatActivity{
 
         matching();
 
-        getContactDetail();
+        getImportBillDetail();
 
         capnhat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +75,7 @@ public class UpdateImportBill extends AppCompatActivity{
             DatabaseReference hanghoa = database.getReference("HangHoa");
             String codePhieu = code.getText().toString().trim();
             String codeHang = hanghoa.child(codePhieu).getKey();
-            DatabaseReference dbtonkho = database.getReference("HangHoa").child(codeHang).child("TonKho");
+            DatabaseReference dbtonkho = hanghoa.child(codeHang).child("TonKho");
 
             dbtonkho.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
@@ -100,7 +100,7 @@ public class UpdateImportBill extends AppCompatActivity{
                 }
             });
 
-            DatabaseReference dbgia = database.getReference("HangHoa").child(codeHang).child("donGiaNhap");
+            DatabaseReference dbgia = hanghoa.child(codeHang).child("donGiaNhap");
             dbgia.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -171,7 +171,7 @@ public class UpdateImportBill extends AppCompatActivity{
         }
     }
 
-    private void getContactDetail() {
+    private void getImportBillDetail() {
         Intent intent = getIntent();
         i_id = intent.getStringExtra("ID");
         sophieu.setText("Phiếu nhập số: "+String.valueOf(i_id));
@@ -200,15 +200,15 @@ public class UpdateImportBill extends AppCompatActivity{
         });
     }
     private void matching() {
-        capnhat = (Button) findViewById(R.id.btn_nhap_capnhat);
-        xoa = (Button) findViewById(R.id.btn_nhap_xoa);
-        huy = (Button) findViewById(R.id.btn_nhap_huy);
+        capnhat = (Button) findViewById(R.id.btn_sua_capnhat);
+        xoa = (Button) findViewById(R.id.btn_sua_xoa);
+        huy = (Button) findViewById(R.id.btn_sua_huy);
         sophieu = (TextView) findViewById(R.id.tv_phieunhap);
-        code = (EditText) findViewById(R.id.edt_nhap_code);
-        tenhang = (EditText) findViewById(R.id.edt_nhap_tenhang);
-        soluong = (EditText) findViewById(R.id.edt_nhap_soluong);
-        ngaynhap = (EditText) findViewById(R.id.edt_nhap_ngaynhap);
-        ngaysua = (EditText) findViewById(R.id.edt_nhap_ngaysua);
-        thanhtien = (EditText) findViewById(R.id.edt_nhap_thanhtien);
+        code = (EditText) findViewById(R.id.edt_sua_code);
+        tenhang = (EditText) findViewById(R.id.edt_sua_tenhang);
+        soluong = (EditText) findViewById(R.id.edt_sua_soluong);
+        ngaynhap = (EditText) findViewById(R.id.edt_sua_ngaynhap);
+        ngaysua = (EditText) findViewById(R.id.edt_sua_ngaysua);
+        thanhtien = (EditText) findViewById(R.id.edt_sua_thanhtien);
     }
 }

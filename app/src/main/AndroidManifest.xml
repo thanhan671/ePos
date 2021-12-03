@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EPos">
         <activity
+            android:name=".ImportBill"
+            android:exported="false" />
+        <activity
             android:name=".UpdateImportBill"
             android:exported="false" />
         <activity

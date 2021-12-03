@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateImportBill">
+    tools:context=".ImportBill">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,14 +16,40 @@
         tools:layout_editor_absoluteY="-365dp">
 
         <TextView
-            android:id="@+id/tv_phieunhap"
+            android:id="@+id/tv_themphieu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="THÊM PHIẾU NHẬP"
             android:textAlignment="center"
             android:textColor="#E12121"
             android:textSize="34sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp">
 
+            <TextView
+                android:id="@+id/textViewID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID:"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_nhap_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:ems="10"
+                android:enabled="false"
+                android:text="ID"
+                android:inputType="textPersonName"
+                android:textColor="#717171"
+                android:textSize="24sp" />
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,7 +66,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/edt_sua_code"
+                android:id="@+id/edt_nhap_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="26dp"
@@ -66,7 +92,7 @@
                 android:textSize="24dp"
                 android:textStyle="bold" />
             <EditText
-                android:id="@+id/edt_sua_tenhang"
+                android:id="@+id/edt_nhap_tenhang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="19dp"
@@ -92,13 +118,14 @@
                 android:textColor="@color/black"
                 android:textSize="24dp"
                 android:textStyle="bold" />
+
             <EditText
-                android:id="@+id/edt_sua_soluong"
+                android:id="@+id/edt_nhap_soluong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:ems="10"
-                android:text="Số Lượng"
+                android:hint="Nhập số lượng hàng"
                 android:inputType="number"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -117,7 +144,7 @@
                 android:textSize="24dp"
                 android:textStyle="bold" />
             <EditText
-                android:id="@+id/edt_sua_ngaynhap"
+                android:id="@+id/edt_nhap_ngaynhap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
@@ -129,77 +156,20 @@
                 android:textSize="24sp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="10dp">
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ngày Sửa:"
-                android:textColor="@color/black"
-                android:textSize="24dp"
-                android:textStyle="bold" />
-            <EditText
-                android:id="@+id/edt_sua_ngaysua"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="17dp"
-                android:ems="10"
-                android:enabled="false"
-                android:text="Ngày Sửa"
-                android:inputType="textPersonName"
-                android:textColor="#717171"
-                android:textSize="24sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="10dp">
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Thành Tiền:"
-                android:textColor="@color/black"
-                android:textSize="24dp"
-                android:textStyle="bold" />
-            <EditText
-                android:id="@+id/edt_sua_thanhtien"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:enabled="false"
-                android:text="Thành Tiền"
-                android:inputType="textPersonName"
-                android:textColor="#717171"
-                android:textSize="24sp" />
-        </LinearLayout>
 
         <Button
-            android:id="@+id/btn_sua_capnhat"
+            android:id="@+id/btn_nhap_them"
             android:layout_width="180dp"
             android:layout_height="70dp"
             android:backgroundTint="#EA8484"
-            android:text="CẬP NHẬT"
-            android:layout_marginTop="20dp"
+            android:text="THÊM"
+            android:layout_marginTop="50dp"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textStyle="bold" />
+
         <Button
-            android:id="@+id/btn_sua_xoa"
-            android:layout_width="180dp"
-            android:layout_height="70dp"
-            android:text="XÓA"
-            android:backgroundTint="#EA8484"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
-        <Button
-            android:id="@+id/btn_sua_huy"
+            android:id="@+id/btn_nhap_huy"
             android:layout_width="180dp"
             android:layout_height="70dp"
             android:text="HỦY"

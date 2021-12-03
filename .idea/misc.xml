@@ -6,9 +6,13 @@
         <entry key="..\:/ProjectFinal/ePos/app/src/main/res/layout/activity_admin_main.xml" value="0.259375" />
         <entry key="..\:/ProjectFinal/ePos/app/src/main/res/layout/activity_staff_main.xml" value="0.259375" />
         <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/activity_admin_main.xml" value="0.259375" />
+        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/activity_import_bill.xml" value="0.259375" />
+        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/activity_import_bill_main.xml" value="0.259375" />
         <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/activity_import_main.xml" value="0.259375" />
         <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/activity_list_import.xml" value="0.259375" />
+        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/activity_scan_product.xml" value="0.259375" />
         <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/activity_update_import.xml" value="0.259375" />
+        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/activity_update_import_bill.xml" value="0.259375" />
       </map>
     </option>
   </component>
