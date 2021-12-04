@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@id/btn_itemProduct_update"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_itemProduct_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="ID: 1"
+            android:textColor="#FB8C00"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_itemProduct_maCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Mã code: 893504950079"
+            android:textColor="#FB8C00"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_itemProduct_tenHH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Tên HH: Nước ngọt Coca Cola"
+            android:textColor="#FB8C00"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_itemProduct_loaiHH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Loại HH: Nước giải khát"
+            android:textColor="#FB8C00"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_itemProduct_dvTinh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Đơn vị tính: Thùng"
+            android:textColor="#FB8C00"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_itemProduct_dgNhap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="ĐG nhập: 50000"
+            android:textColor="#FB8C00"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_itemProduct_dgXuat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="ĐG xuất: 100000"
+            android:textColor="#FB8C00"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_itemProduct_tonKho"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Tồn kho: 50"
+            android:textColor="#FB8C00"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_itemProduct_update"
+        android:layout_width="117dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="15dp"
+        android:layout_toStartOf="@id/btn_itemProduct_delete"
+        android:backgroundTint="#DCE775"
+        android:text="Cập Nhật"
+        android:textColor="#C2185B"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btn_itemProduct_delete"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:backgroundTint="#FFAB91"
+        android:text="Xóa"
+        android:textColor="#E53935"
+        android:textSize="15sp" />
+
+</RelativeLayout>

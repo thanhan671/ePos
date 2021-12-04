@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#00000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_dialogUpdateProduct_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#C5E1A5"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="Update Product"
+            android:textColor="#1A237E"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_dialogUpdateProduct_maCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Mã Code"
+            android:padding="12dp"
+            android:textAlignment="viewStart"
+            android:textColor="#FB8C00"
+            android:textColorHint="#FB8C00"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_dialogUpdateProduct_tenHH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Tên Hàng hóa"
+            android:padding="12dp"
+            android:textAlignment="viewStart"
+            android:textColor="#FB8C00"
+            android:textColorHint="#FB8C00"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_dialogUpdateProduct_loaiHH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Loại Hàng hóa"
+            android:padding="12dp"
+            android:textAlignment="viewStart"
+            android:textColor="#FB8C00"
+            android:textColorHint="#FB8C00"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_dialogUpdateProduct_dvTinh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Đơn vị tính"
+            android:padding="12dp"
+            android:textAlignment="viewStart"
+            android:textColor="#FB8C00"
+            android:textColorHint="#FB8C00"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_dialogUpdateProduct_tonKho"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Tồn kho"
+            android:padding="12dp"
+            android:textAlignment="viewStart"
+            android:textColor="#FB8C00"
+            android:textColorHint="#FB8C00"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_dialogUpdateProduct_dgNhap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Đơn giá nhập"
+            android:padding="12dp"
+            android:textAlignment="viewStart"
+            android:textColor="#FB8C00"
+            android:textColorHint="#FB8C00"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_dialogUpdateProduct_dgXuat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Đơn giá xuất"
+            android:padding="12dp"
+            android:textAlignment="viewStart"
+            android:textColor="#FB8C00"
+            android:textColorHint="#FB8C00"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_dialogUpdateProduct_cancel"
+                android:layout_width="145dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"
+                android:backgroundTint="#FFF59D"
+                android:text="HỦY"
+                android:textColor="#E53935"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btn_dialogUpdateProduct_save"
+                android:layout_width="145dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:backgroundTint="#81D4FA"
+                android:text="LƯU"
+                android:textColor="#00897B"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

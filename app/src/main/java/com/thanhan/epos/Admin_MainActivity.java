@@ -28,7 +28,8 @@ public class Admin_MainActivity extends AppCompatActivity {
         btnHangHoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(Admin_MainActivity.this, AddProductActivity.class);
+                startActivity(intent);
             }
         });
 

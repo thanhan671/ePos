@@ -18,7 +18,7 @@
             android:background="#C5E1A5"
             android:gravity="center"
             android:padding="12dp"
-            android:text="Edit Product Type"
+            android:text="Update Product Type"
             android:textColor="#1A237E"
             android:textSize="20sp" />
 
