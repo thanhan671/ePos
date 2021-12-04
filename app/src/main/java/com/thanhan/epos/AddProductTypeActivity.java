@@ -75,7 +75,7 @@ public class AddProductTypeActivity extends AppCompatActivity {
 
     private void onClickAddPT(ProductType pt) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Loaihang");
+        DatabaseReference myRef = database.getReference("LoaiHang");
 
         String pathObject = String.valueOf(pt.getId());
         myRef.child(pathObject).setValue(pt, new DatabaseReference.CompletionListener() {
@@ -100,14 +100,14 @@ public class AddProductTypeActivity extends AppCompatActivity {
         rcvPT.addItemDecoration(dividerItemDecoration);
 
         mListPT = new ArrayList<>();
-        mPTAdapter = new PTAdapter(mListPT, new PTAdapter.iClickListener() {
+        mPTAdapter = new PTAdapter(mListPT, new PTAdapter.IClickPTListener() {
             @Override
-            public void onClickEditItem(ProductType pt) {
+            public void onClickEditPT(ProductType pt) {
                 openDialogUpdateItem(pt);
             }
 
             @Override
-            public void onClickDeleteItem(ProductType pt) {
+            public void onClickDeletePT(ProductType pt) {
                 deleteData(pt);
             }
         });
@@ -117,7 +117,7 @@ public class AddProductTypeActivity extends AppCompatActivity {
 
     private void getListPT() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Loaihang");
+        DatabaseReference myRef = database.getReference("LoaiHang");
 
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
@@ -180,15 +180,15 @@ public class AddProductTypeActivity extends AppCompatActivity {
     private void openDialogUpdateItem(ProductType pt) {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.layout_dialog_edit_pt);
+        dialog.setContentView(R.layout.layout_dialog_update_pt);
         Window window = dialog.getWindow();
         window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setCancelable(false);
 
-        EditText edtEditName = (EditText) dialog.findViewById(R.id.et_dialogEdit_name);
-        Button btnSave = (Button) dialog.findViewById(R.id.btn_dialogEdit_save);
-        Button btnCancel = (Button) dialog.findViewById(R.id.btn_dialogEdit_cancel);
+        EditText edtEditName = (EditText) dialog.findViewById(R.id.et_dialogUpdatePT_name);
+        Button btnSave = (Button) dialog.findViewById(R.id.btn_dialogUpdatePT_save);
+        Button btnCancel = (Button) dialog.findViewById(R.id.btn_dialogUpdatePT_cancel);
 
         edtEditName.setText(pt.getTypeName());
 
@@ -203,7 +203,7 @@ public class AddProductTypeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("Loaihang");
+                DatabaseReference myRef = database.getReference("LoaiHang");
 
                 String newName = edtEditName.getText().toString().trim();
                 pt.setTypeName(newName);
@@ -229,7 +229,7 @@ public class AddProductTypeActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
-                        DatabaseReference myRef = database.getReference("Loaihang");
+                        DatabaseReference myRef = database.getReference("LoaiHang");
 
                         myRef.child(String.valueOf(pt.getId())).removeValue(new DatabaseReference.CompletionListener() {
                             @Override
@@ -245,7 +245,7 @@ public class AddProductTypeActivity extends AppCompatActivity {
 
     private void setMaxIdItem() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Loaihang");
+        DatabaseReference myRef = database.getReference("LoaiHang");
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
