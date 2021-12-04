@@ -81,7 +81,7 @@ public class ImportBill extends AppCompatActivity {
             reference.child(sid).child("ngayThayDoi").setValue(sngaysua);
 
             String codeHang = hanghoa.child(scode).getKey();
-            DatabaseReference dbtonkho = hanghoa.child(codeHang).child("TonKho");
+            DatabaseReference dbtonkho = hanghoa.child(codeHang).child("tonKho");
 
             dbtonkho.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
@@ -125,7 +125,7 @@ public class ImportBill extends AppCompatActivity {
         Intent intent = getIntent();
         scode = intent.getStringExtra("code");
 
-        String sngaysua = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        String sngay= new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("HangHoa");
@@ -136,7 +136,7 @@ public class ImportBill extends AppCompatActivity {
                     HashMap<String, Object> hashMap = (HashMap<String, Object>) dataSnapshot.getValue();
                     code.setText(scode);
                     tenhang.setText(hashMap.get("tenHangHoa").toString());
-                    ngaynhap.setText(sngaysua);
+                    ngaynhap.setText(sngay);
                 } catch (Exception e) {
                     Log.d("Loi_json",e.toString());
                 }

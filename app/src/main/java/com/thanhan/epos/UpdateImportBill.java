@@ -75,7 +75,7 @@ public class UpdateImportBill extends AppCompatActivity{
             DatabaseReference hanghoa = database.getReference("HangHoa");
             String codePhieu = code.getText().toString().trim();
             String codeHang = hanghoa.child(codePhieu).getKey();
-            DatabaseReference dbtonkho = hanghoa.child(codeHang).child("TonKho");
+            DatabaseReference dbtonkho = hanghoa.child(codeHang).child("tonKho");
 
             dbtonkho.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
@@ -131,7 +131,7 @@ public class UpdateImportBill extends AppCompatActivity{
         DatabaseReference hanghoa = database.getReference("HangHoa");
         String codePhieu = code.getText().toString().trim();
         String codeHang = hanghoa.child(codePhieu).getKey();
-        DatabaseReference dbtonkho = database.getReference().child("HangHoa").child(codeHang).child("TonKho");
+        DatabaseReference dbtonkho = database.getReference().child("HangHoa").child(codeHang).child("tonKho");
 
         if (codePhieu.equals(codeHang)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(UpdateImportBill.this);
