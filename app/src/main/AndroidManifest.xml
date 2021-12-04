@@ -15,6 +15,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EPos">
         <activity
+            android:name=".ExportData.ExportItemActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ExportData.ListExportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ExportData.listExportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ExportData.ExportBill_MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListExport"
+            android:exported="false" />
+        <activity
+            android:name=".ExportBillActivity"
+            android:exported="false" />
+        <activity
             android:name=".ImportBill"
             android:exported="false" />
         <activity
