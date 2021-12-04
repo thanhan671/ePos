@@ -9,17 +9,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toStartOf="@id/btn_itemProduct_update"
-        android:layout_marginRight="15dp"
+        android:layout_marginRight="10dp"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tv_itemProduct_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="ID: 1"
-            android:textColor="#FB8C00"
-            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tv_itemProduct_maCode"
@@ -88,10 +79,10 @@
 
     <Button
         android:id="@+id/btn_itemProduct_update"
-        android:layout_width="117dp"
+        android:layout_width="78dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="10dp"
         android:layout_toStartOf="@id/btn_itemProduct_delete"
         android:backgroundTint="#DCE775"
         android:text="Cập Nhật"
@@ -100,7 +91,7 @@
 
     <Button
         android:id="@+id/btn_itemProduct_delete"
-        android:layout_width="75dp"
+        android:layout_width="67dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"

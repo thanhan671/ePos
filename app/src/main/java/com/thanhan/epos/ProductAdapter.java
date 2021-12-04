@@ -40,7 +40,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             return;
         }
 
-        holder.tvId.setText("ID: " + pro.getId());
         holder.tvMaCode.setText("Mã code: " + pro.getMaCode());
         holder.tvTenHH.setText("Tên HH: " + pro.getTenHangHoa());
         holder.tvLoaiHH.setText("Loại HH: " + pro.getLoaiHangHoa());
@@ -76,13 +75,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public class ProductViewHolder extends RecyclerView
 
             .ViewHolder {
-        private TextView tvId, tvMaCode, tvTenHH, tvLoaiHH, tvDVTinh, tvDGNhap, tvDGXuat, tvTonKho;
+        private TextView tvMaCode, tvTenHH, tvLoaiHH, tvDVTinh, tvDGNhap, tvDGXuat, tvTonKho;
         private Button btnUpdate, btnDelete;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            tvId = (TextView) itemView.findViewById(R.id.tv_itemProduct_id);
             tvMaCode = (TextView) itemView.findViewById(R.id.tv_itemProduct_maCode);
             tvTenHH = (TextView) itemView.findViewById(R.id.tv_itemProduct_tenHH);
             tvLoaiHH = (TextView) itemView.findViewById(R.id.tv_itemProduct_loaiHH);
