@@ -7,7 +7,6 @@ public class ProductObj {
     int donGiaNhap;
     int donGiaXuat;
     String donViTinh;
-    int id;
     String loaiHangHoa;
     String maCode;
     String tenHangHoa;
@@ -16,11 +15,10 @@ public class ProductObj {
     public ProductObj() {
     }
 
-    public ProductObj(int donGiaNhap, int donGiaXuat, String donViTinh, int id, String loaiHangHoa, String maCode, String tenHangHoa, int tonKho) {
+    public ProductObj(int donGiaNhap, int donGiaXuat, String donViTinh, String loaiHangHoa, String maCode, String tenHangHoa, int tonKho) {
         this.donGiaNhap = donGiaNhap;
         this.donGiaXuat = donGiaXuat;
         this.donViTinh = donViTinh;
-        this.id = id;
         this.loaiHangHoa = loaiHangHoa;
         this.maCode = maCode;
         this.tenHangHoa = tenHangHoa;
@@ -49,14 +47,6 @@ public class ProductObj {
 
     public void setDonViTinh(String donViTinh) {
         this.donViTinh = donViTinh;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getLoaiHangHoa() {
@@ -98,7 +88,6 @@ public class ProductObj {
         result.put("donGiaXuat", donGiaXuat);
         result.put("donViTinh", donViTinh);
         result.put("loaiHangHoa", loaiHangHoa);
-        result.put("maCode", maCode);
         result.put("tenHangHoa", tenHangHoa);
         result.put("tonKho", tonKho);
 

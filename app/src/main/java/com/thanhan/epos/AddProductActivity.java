@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -29,19 +30,22 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddProductActivity extends AppCompatActivity {
     private ImageView back;
-    private EditText etId, etTenHH, etMaCode, etLoaiHH, etDVTinh, etDGNhap, etDGXuat, etTonKho;
+    private EditText etTenHH, etMaCode, etDVTinh, etDGNhap, etDGXuat, etTonKho;
     private Button btnAddProduct, btnScanCode;
     private RecyclerView rcvProductList;
     private ProductAdapter mProductAdapter;
     private List<ProductObj> mProductList;
-    private int maxId = 0;
     private Spinner spnLoaiHH;
+    private List<String> loaiHH;
+    private ArrayAdapter<String> mLoaiHHAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,17 +64,16 @@ public class AddProductActivity extends AppCompatActivity {
         btnScanCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                scanCode();
             }
         });
 
         btnAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int id = Integer.parseInt(etId.getText().toString().trim());
-                String tenHH = etTenHH.getText().toString().trim();
                 String maCode = etMaCode.getText().toString().trim();
-                String loaiHH = etLoaiHH.getText().toString().trim();
+                String tenHH = etTenHH.getText().toString().trim();
+                String loaiHH = spnLoaiHH.getSelectedItem().toString();
                 String dvTinh = etDVTinh.getText().toString().trim();
                 String dgNhap = etDGNhap.getText().toString().trim();
                 String dgXuat = etDGXuat.getText().toString().trim();
@@ -80,8 +83,6 @@ public class AddProductActivity extends AppCompatActivity {
                     Toast.makeText(AddProductActivity.this, "Vui lòng nhập hoặc quét mã Code", Toast.LENGTH_SHORT).show();
                 } else if (tenHH.isEmpty()) {
                     Toast.makeText(AddProductActivity.this, "Vui lòng nhập tên Hàng hóa", Toast.LENGTH_SHORT).show();
-                } else if (loaiHH.isEmpty()) {
-                    Toast.makeText(AddProductActivity.this, "Vui lòng chọn loại Hàng hóa", Toast.LENGTH_SHORT).show();
                 } else if (dvTinh.isEmpty()) {
                     Toast.makeText(AddProductActivity.this, "Vui lòng nhập Đơn vị tính", Toast.LENGTH_SHORT).show();
                 } else if (tonKho.isEmpty() || Integer.parseInt(tonKho) < 0) {
@@ -91,7 +92,7 @@ public class AddProductActivity extends AppCompatActivity {
                 } else if (dgXuat.isEmpty() || Integer.parseInt(dgXuat) <= 0) {
                     Toast.makeText(AddProductActivity.this, "Đơn giá xuất phải lớn hơn 0", Toast.LENGTH_SHORT).show();
                 } else {
-                    ProductObj pro = new ProductObj(Integer.parseInt(dgNhap), Integer.parseInt(dgXuat), dvTinh, id, loaiHH, maCode, tenHH, Integer.parseInt(tonKho));
+                    ProductObj pro = new ProductObj(Integer.parseInt(dgNhap), Integer.parseInt(dgXuat), dvTinh, loaiHH, maCode, tenHH, Integer.parseInt(tonKho));
                     onClickAddProduct(pro);
                 }
             }
@@ -102,10 +103,8 @@ public class AddProductActivity extends AppCompatActivity {
 
     private void initUi() {
         back = (ImageView) findViewById(R.id.imgV_addProduct_back);
-        etId = (EditText) findViewById(R.id.et_addProduct_id);
         etTenHH = (EditText) findViewById(R.id.et_addProduct_tenHH);
         etMaCode = (EditText) findViewById(R.id.et_addProduct_maCode);
-        etLoaiHH = (EditText) findViewById(R.id.et_addProduct_loaiHH);
         etDVTinh = (EditText) findViewById(R.id.et_addProduct_dvTinh);
         etDGNhap = (EditText) findViewById(R.id.et_addProduct_dgNhap);
         etDGXuat = (EditText) findViewById(R.id.et_addProduct_dgXuat);
@@ -136,6 +135,8 @@ public class AddProductActivity extends AppCompatActivity {
         rcvProductList.setAdapter(mProductAdapter);
 
         spnLoaiHH = (Spinner) findViewById(R.id.spnLoaiHH);
+
+        getLoaiHH(spnLoaiHH);
     }
 
     private void onClickAddProduct(ProductObj p) {
@@ -143,6 +144,7 @@ public class AddProductActivity extends AppCompatActivity {
         DatabaseReference myRef = database.getReference("HangHoa");
 
         String pathObject = String.valueOf(p.getMaCode());
+        myRef.child(p.getMaCode()).push();
         myRef.child(pathObject).setValue(p, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
@@ -173,7 +175,7 @@ public class AddProductActivity extends AppCompatActivity {
                 }
 
                 for (int i = 0; i < mProductList.size(); i++) {
-                    if (p.getId() == mProductList.get(i).getId()) {
+                    if (p.getMaCode() == mProductList.get(i).getMaCode()) {
                         mProductList.set(i, p);
                         break;
                     }
@@ -190,7 +192,7 @@ public class AddProductActivity extends AppCompatActivity {
                 }
 
                 for (int i = 0; i < mProductList.size(); i++) {
-                    if (p.getId() == mProductList.get(i).getId()) {
+                    if (p.getMaCode() == mProductList.get(i).getMaCode()) {
                         mProductList.remove(mProductList.get(i));
                         break;
                     }
@@ -209,8 +211,6 @@ public class AddProductActivity extends AppCompatActivity {
                 Toast.makeText(AddProductActivity.this, "Lấy dữ liệu thất bại", Toast.LENGTH_SHORT).show();
             }
         });
-
-        setMaxIdItem();
     }
 
     private void openDialogUpdateProduct(ProductObj pro) {
@@ -223,23 +223,22 @@ public class AddProductActivity extends AppCompatActivity {
         dialog.setCancelable(false);
 
         EditText etEditTenHH = (EditText) dialog.findViewById(R.id.et_dialogUpdateProduct_tenHH);
-        EditText etEditMaCode = (EditText) dialog.findViewById(R.id.et_dialogUpdateProduct_maCode);
-        EditText etEditLoaiHH = (EditText) dialog.findViewById(R.id.et_dialogUpdateProduct_loaiHH);
         EditText etEditDVTinh = (EditText) dialog.findViewById(R.id.et_dialogUpdateProduct_dvTinh);
         EditText etEditDGNhap = (EditText) dialog.findViewById(R.id.et_dialogUpdateProduct_dgNhap);
         EditText etEditDGXuat = (EditText) dialog.findViewById(R.id.et_dialogUpdateProduct_dgXuat);
         EditText etEditTonKho = (EditText) dialog.findViewById(R.id.et_dialogUpdateProduct_tonKho);
+        Spinner spnEditLoaiHH = (Spinner) dialog.findViewById(R.id.spn_dialogUpdateProduct_loaiHH);
 
         Button btnSave = (Button) dialog.findViewById(R.id.btn_dialogUpdateProduct_save);
         Button btnCancel = (Button) dialog.findViewById(R.id.btn_dialogUpdateProduct_cancel);
 
         etEditTenHH.setText(pro.getTenHangHoa());
-        etEditMaCode.setText(pro.getMaCode());
-        etEditLoaiHH.setText(pro.getLoaiHangHoa());
         etEditDVTinh.setText(pro.getDonViTinh());
         etEditDGNhap.setText(String.valueOf(pro.getDonGiaNhap()));
         etEditDGXuat.setText(String.valueOf(pro.getDonGiaXuat()));
         etEditTonKho.setText(String.valueOf(pro.getTonKho()));
+
+        getLoaiHH(spnEditLoaiHH);
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -257,12 +256,6 @@ public class AddProductActivity extends AppCompatActivity {
                 String newTenHH = etEditTenHH.getText().toString().trim();
                 pro.setTenHangHoa(newTenHH);
 
-                String newMaCode = etEditMaCode.getText().toString().trim();
-                pro.setMaCode(newMaCode);
-
-                String newLoaiHH = etEditLoaiHH.getText().toString().trim();
-                pro.setLoaiHangHoa(newLoaiHH);
-
                 String newDVTinh = etEditDVTinh.getText().toString().trim();
                 pro.setDonViTinh(newDVTinh);
 
@@ -275,7 +268,10 @@ public class AddProductActivity extends AppCompatActivity {
                 String newTonKho = etEditTonKho.getText().toString().trim();
                 pro.setTonKho(Integer.parseInt(newTonKho));
 
-                myRef.child(String.valueOf(pro.getId())).updateChildren(pro.toMapProduct(), new DatabaseReference.CompletionListener() {
+                String newSpinnerLoaiHH = spnEditLoaiHH.getSelectedItem().toString();
+                pro.setLoaiHangHoa(newSpinnerLoaiHH);
+
+                myRef.child(String.valueOf(pro.getMaCode())).updateChildren(pro.toMapProduct(), new DatabaseReference.CompletionListener() {
                     @Override
                     public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
                         Toast.makeText(AddProductActivity.this, "Cập nhật Hàng hóa thành công", Toast.LENGTH_SHORT).show();
@@ -298,7 +294,7 @@ public class AddProductActivity extends AppCompatActivity {
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference myRef = database.getReference("HangHoa");
 
-                        myRef.child(String.valueOf(pro.getId())).removeValue(new DatabaseReference.CompletionListener() {
+                        myRef.child(String.valueOf(pro.getMaCode())).removeValue(new DatabaseReference.CompletionListener() {
                             @Override
                             public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
                                 Toast.makeText(AddProductActivity.this, "Xóa thành công", Toast.LENGTH_SHORT).show();
@@ -310,26 +306,69 @@ public class AddProductActivity extends AppCompatActivity {
                 .show();
     }
 
-    private void setMaxIdItem() {
+    private void getLoaiHH(Spinner spn) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("HangHoa");
+        DatabaseReference myRef = database.getReference("LoaiHang");
+
+        loaiHH = new ArrayList<>();
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot item : snapshot.getChildren()) {
-                    int temp = Integer.parseInt(item.getKey());
-                    if (temp > maxId)
-                        maxId = temp;
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    String spinnerLoaiHH = dataSnapshot.child("typeName").getValue(String.class);
+                    loaiHH.add(spinnerLoaiHH);
                 }
-                etId.setText(String.valueOf(maxId + 1));
-                etId.setEnabled(false);
+
+                mLoaiHHAdapter = new ArrayAdapter<>(AddProductActivity.this, R.layout.item_spinner, loaiHH);
+                mLoaiHHAdapter.setDropDownViewResource(R.layout.item_spinner);
+                spn.setAdapter(mLoaiHHAdapter);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
+    }
+
+    private void scanCode() {
+        IntentIntegrator integrator = new IntentIntegrator(AddProductActivity.this);
+        integrator.setCaptureActivity(Capture.class);
+        integrator.setOrientationLocked(false);
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+        integrator.setPrompt("Scanning Code");
+        integrator.initiateScan();
+    }
+
+    @Override
+    protected void onActivityResult(int request, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(resultCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() != null) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(AddProductActivity.this);
+                etMaCode.setText(result.getContents());
+                //builder.setMessage(result.getContents());
+                builder.setTitle("Scanning Result");
+                builder.setPositiveButton("Scan Again", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        scanCode();
+                    }
+                }).setNegativeButton("Finish", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            } else {
+                Toast.makeText(AddProductActivity.this, "No result", Toast.LENGTH_LONG).show();
+            }
+        } else {
+            super.onActivityResult(resultCode, resultCode, data);
+        }
     }
 
 }
