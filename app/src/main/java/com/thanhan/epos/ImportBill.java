@@ -30,7 +30,7 @@ public class ImportBill extends AppCompatActivity {
     Button them, huy;
     EditText id, code, tenhang, soluong, ngaynhap;
     String scode;
-    Integer i_id;
+    Integer i_id, maxId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +65,23 @@ public class ImportBill extends AppCompatActivity {
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference reference = database.getReference("PhieuNhap");
             DatabaseReference hanghoa = database.getReference("HangHoa");
+
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for (DataSnapshot item : snapshot.getChildren()) {
+                        int temp = Integer.parseInt(item.getKey());
+                        if (temp > maxId)
+                            maxId = temp;
+                    }
+                    id.setText(String.valueOf(maxId + 1));
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
 
             String sid = id.getText().toString().trim();
             String scode = code.getText().toString().trim();
