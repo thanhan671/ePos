@@ -39,10 +39,6 @@ public class ImportBill extends AppCompatActivity {
 
         matching();
 
-        Intent intent = getIntent();
-        i_id = intent.getIntExtra("ID", -1);
-        id.setText(String.valueOf(i_id));
-
         getProductDetail();
 
         huy.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +62,7 @@ public class ImportBill extends AppCompatActivity {
             DatabaseReference reference = database.getReference("PhieuNhap");
             DatabaseReference hanghoa = database.getReference("HangHoa");
 
+
             reference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -82,7 +79,6 @@ public class ImportBill extends AppCompatActivity {
 
                 }
             });
-
             String sid = id.getText().toString().trim();
             String scode = code.getText().toString().trim();
             String stenhang = tenhang.getText().toString().trim();
@@ -146,6 +142,7 @@ public class ImportBill extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("HangHoa");
+
         reference.child(String.valueOf(scode)).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
