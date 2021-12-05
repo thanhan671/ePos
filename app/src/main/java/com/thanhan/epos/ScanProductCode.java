@@ -1,5 +1,6 @@
 package com.thanhan.epos;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,8 +12,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -65,19 +69,31 @@ public class ScanProductCode extends AppCompatActivity implements View.OnClickLi
                 DatabaseReference hanghoa = database.getReference("HangHoa");
 
                 String macode = result.getContents();
-                String codeHang = hanghoa.child(macode).getKey();
 
                 builder.setPositiveButton("Thêm phiếu nhập", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (macode.equals(codeHang)){
-                            Intent intent = new Intent(getApplicationContext(), ImportBill.class);
-                            intent.putExtra("code", macode);
-                            startActivity(intent);
-                        }else {
-                            Toast.makeText(getApplicationContext(),
-                                    "Sản phẩm chưa có sẵn trong kho!",Toast.LENGTH_LONG).show();
-                        }
+                        hanghoa.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot item : snapshot.getChildren()) {
+                                    String codeHang = item.getKey();
+                                    if (macode.equals(codeHang)){
+                                        Intent intent = new Intent(getApplicationContext(), ImportBill.class);
+                                        intent.putExtra("code", macode);
+                                        startActivity(intent);
+                                    }else {
+                                        Toast.makeText(getApplicationContext(),
+                                                "Sản phẩm chưa có sẵn trong kho!",Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                     }
                 }).setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
                     @Override
