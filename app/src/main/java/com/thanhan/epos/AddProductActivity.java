@@ -160,41 +160,43 @@ public class AddProductActivity extends AppCompatActivity {
     }
 
     private void scanCode() {
-        IntentIntegrator integrator = new IntentIntegrator(AddProductActivity.this);
+        IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.setCaptureActivity(Capture.class);
         integrator.setOrientationLocked(false);
         integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
-        integrator.setPrompt("Scanning Code");
+        integrator.setPrompt("Đang quét mã");
         integrator.initiateScan();
     }
 
     @Override
     protected void onActivityResult(int request, int resultCode, Intent data) {
-        IntentResult result = IntentIntegrator.parseActivityResult(resultCode, resultCode, data);
-        if (result != null) {
-            if (result.getContents() != null) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(AddProductActivity.this);
-                etMaCode.setText(result.getContents());
-                //builder.setMessage(result.getContents());
-                builder.setTitle("Scanning Result");
-                builder.setPositiveButton("Scan Again", new DialogInterface.OnClickListener() {
+        IntentResult result = IntentIntegrator.parseActivityResult(request,resultCode,data);
+        if (result != null){
+            if (result.getContents() != null){
+                androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(this);
+                builder.setMessage(result.getContents());
+                builder.setTitle("Code sản phẩm");
+
+                builder.setPositiveButton("Quét lại", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         scanCode();
                     }
-                }).setNegativeButton("Finish", new DialogInterface.OnClickListener() {
+                }).setNegativeButton("Hoàn thành", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        finish();
+                        etMaCode.setText(result.getContents());
                     }
                 });
-                AlertDialog dialog = builder.create();
+
+                androidx.appcompat.app.AlertDialog dialog = builder.create();
                 dialog.show();
-            } else {
-                Toast.makeText(AddProductActivity.this, "No result", Toast.LENGTH_LONG).show();
             }
-        } else {
-            super.onActivityResult(resultCode, resultCode, data);
+            else {
+                Toast.makeText(this,"Không có kết quả",Toast.LENGTH_LONG).show();
+            }
+        }else {
+            super.onActivityResult(request,resultCode,data);
         }
     }
 
