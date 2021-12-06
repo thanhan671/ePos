@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EPos">
         <activity
+            android:name=".ExportData.ExportAddActivity"
+            android:exported="false" />
+        <activity
             android:name=".ExportData.ExportItemActivity"
             android:exported="false" />
         <activity
