@@ -30,7 +30,7 @@ public class ImportBill extends AppCompatActivity {
     Button them, huy;
     EditText id, code, tenhang, soluong, ngaynhap;
     String scode;
-    Integer i_id, maxId = 0;
+    Integer maxId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,23 +62,6 @@ public class ImportBill extends AppCompatActivity {
             DatabaseReference reference = database.getReference("PhieuNhap");
             DatabaseReference hanghoa = database.getReference("HangHoa");
 
-
-            reference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    for (DataSnapshot item : snapshot.getChildren()) {
-                        int temp = Integer.parseInt(item.getKey());
-                        if (temp > maxId)
-                            maxId = temp;
-                    }
-                    id.setText(String.valueOf(maxId + 1));
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
             String sid = id.getText().toString().trim();
             String scode = code.getText().toString().trim();
             String stenhang = tenhang.getText().toString().trim();
@@ -120,7 +103,7 @@ public class ImportBill extends AppCompatActivity {
                     else {
                         Integer igia = Integer.parseInt((task.getResult().getValue()).toString());
                         Integer ithem = Integer.parseInt(ssoluong);
-                        reference.child(String.valueOf(i_id)).child("thanhTien")
+                        reference.child(sid).child("thanhTien")
                                 .setValue(String.valueOf(igia*ithem));
                     }
                 }
@@ -141,9 +124,27 @@ public class ImportBill extends AppCompatActivity {
         String sngay= new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("HangHoa");
+        DatabaseReference phieunhap = database.getReference("PhieuNhap");
+        DatabaseReference hanghoa = database.getReference("HangHoa");
 
-        reference.child(String.valueOf(scode)).addListenerForSingleValueEvent(new ValueEventListener() {
+        phieunhap.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot item : snapshot.getChildren()) {
+                    int temp = Integer.parseInt(item.getKey());
+                    if (temp > maxId)
+                        maxId = temp;
+                }
+                id.setText(String.valueOf(maxId + 1));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        hanghoa.child(String.valueOf(scode)).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try {
