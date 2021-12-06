@@ -1,16 +1,21 @@
 package com.thanhan.epos;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -19,6 +24,7 @@ import java.util.ArrayList;
 public class ImportBill_MainActivity extends AppCompatActivity {
 
     ArrayList listCode;
+    Boolean ssCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,9 +79,35 @@ public class ImportBill_MainActivity extends AppCompatActivity {
                 builder.setPositiveButton("Thêm phiếu nhập", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(getApplicationContext(), ImportBill.class);
-                        intent.putExtra("code", macode);
-                        startActivity(intent);
+                        hanghoa.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot item : snapshot.getChildren()) {
+                                    listCode.add(item.getKey());
+                                }
+                                for (int i = 0; i < listCode.size(); i++) {
+                                    if (macode.equals(listCode.get(i))== true){
+                                        ssCode = true;
+                                    }
+                                    else {
+                                        ssCode = false;
+                                    }
+                                }
+                                if (ssCode == true){
+                                    Intent intent = new Intent(getApplicationContext(), ImportBill.class);
+                                    intent.putExtra("code", macode);
+                                    startActivity(intent);
+                                }
+                                else {
+                                    Toast.makeText(getApplicationContext(),
+                                            "Sản phẩm không tồn tại!",Toast.LENGTH_LONG).show();
+                                }
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                Log.d("Loi_detail", error.toString());
+                            }
+                        });
                     }
                 }).setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
                     @Override

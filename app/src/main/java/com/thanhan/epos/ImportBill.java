@@ -140,7 +140,7 @@ public class ImportBill extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Log.d("Loi_detail", error.toString());
             }
         });
 
