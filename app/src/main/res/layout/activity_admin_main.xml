@@ -28,7 +28,7 @@
                 android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:text="Xin chào ...!" />
+                android:text="Đăng xuất" />
         </LinearLayout>
 
         <LinearLayout
