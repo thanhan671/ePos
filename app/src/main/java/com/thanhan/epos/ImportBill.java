@@ -78,12 +78,9 @@ public class ImportBill extends AppCompatActivity {
 
             String codeHang = hanghoa.child(scode).getKey();
             DatabaseReference dbtonkho = hanghoa.child(codeHang).child("tonKho");
+            DatabaseReference dbgia = hanghoa.child(codeHang).child("donGiaNhap");
 
-            if (ssoluong.isEmpty()){
-                Toast.makeText(getApplicationContext(),
-                        "Vui lòng nhập số lương hàng!", Toast.LENGTH_LONG).show();
-            }
-            else {
+            if (ssoluong.isEmpty()==false){
                 dbtonkho.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -97,8 +94,6 @@ public class ImportBill extends AppCompatActivity {
                         }
                     }
                 });
-
-                DatabaseReference dbgia = hanghoa.child(codeHang).child("donGiaNhap");
                 dbgia.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -113,10 +108,13 @@ public class ImportBill extends AppCompatActivity {
                         }
                     }
                 });
-
                 Toast.makeText(ImportBill.this,
                         "Thêm phiếu nhập thành công!", Toast.LENGTH_LONG).show();
                 finish();
+            }
+            else {
+                Toast.makeText(getApplicationContext(),
+                        "Vui lòng nhập số lương hàng!", Toast.LENGTH_LONG).show();
             }
         }catch (Exception e){
             e.printStackTrace();
