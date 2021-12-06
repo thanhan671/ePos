@@ -79,39 +79,45 @@ public class ImportBill extends AppCompatActivity {
             String codeHang = hanghoa.child(scode).getKey();
             DatabaseReference dbtonkho = hanghoa.child(codeHang).child("tonKho");
 
-            dbtonkho.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DataSnapshot> task) {
-                    if (!task.isSuccessful()) {
-                        Log.e("firebase", "Error getting data", task.getException());
+            if (ssoluong.isEmpty()){
+                Toast.makeText(getApplicationContext(),
+                        "Vui lòng nhập số lương hàng!", Toast.LENGTH_LONG).show();
+            }
+            else {
+                dbtonkho.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if (!task.isSuccessful()) {
+                            Log.e("firebase", "Error getting data", task.getException());
+                        }
+                        else {
+                            Integer iton = Integer.parseInt((task.getResult().getValue()).toString());
+                            Integer ithem = Integer.parseInt(ssoluong);
+                            dbtonkho.setValue(String.valueOf(iton+ithem));
+                        }
                     }
-                    else {
-                        Integer iton = Integer.parseInt((task.getResult().getValue()).toString());
-                        Integer ithem = Integer.parseInt(ssoluong);
-                        dbtonkho.setValue(String.valueOf(iton+ithem));
-                    }
-                }
-            });
+                });
 
-            DatabaseReference dbgia = hanghoa.child(codeHang).child("donGiaNhap");
-            dbgia.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DataSnapshot> task) {
-                    if (!task.isSuccessful()) {
-                        Log.e("firebase", "Error getting data", task.getException());
+                DatabaseReference dbgia = hanghoa.child(codeHang).child("donGiaNhap");
+                dbgia.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if (!task.isSuccessful()) {
+                            Log.e("firebase", "Error getting data", task.getException());
+                        }
+                        else {
+                            Integer igia = Integer.parseInt((task.getResult().getValue()).toString());
+                            Integer ithem = Integer.parseInt(ssoluong);
+                            reference.child(sid).child("thanhTien")
+                                    .setValue(String.valueOf(igia*ithem));
+                        }
                     }
-                    else {
-                        Integer igia = Integer.parseInt((task.getResult().getValue()).toString());
-                        Integer ithem = Integer.parseInt(ssoluong);
-                        reference.child(sid).child("thanhTien")
-                                .setValue(String.valueOf(igia*ithem));
-                    }
-                }
-            });
+                });
 
-            Toast.makeText(ImportBill.this,
-                    "Thêm phiếu nhập thành công!", Toast.LENGTH_LONG).show();
-            finish();
+                Toast.makeText(ImportBill.this,
+                        "Thêm phiếu nhập thành công!", Toast.LENGTH_LONG).show();
+                finish();
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
