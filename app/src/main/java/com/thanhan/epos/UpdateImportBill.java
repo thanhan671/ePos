@@ -94,7 +94,7 @@ public class UpdateImportBill extends AppCompatActivity{
                                         public void onComplete(@NonNull Task<DataSnapshot> task) {
                                             Integer idau = Integer.parseInt((task.getResult().getValue()).toString());
                                             Integer idoi = idau-icapnhat;
-                                            dbtonkho.setValue(String.valueOf(iton-idoi));
+                                            dbtonkho.setValue(iton-idoi);
                                         }
                                     }
                             );
@@ -151,7 +151,7 @@ public class UpdateImportBill extends AppCompatActivity{
                             else {
                                 Integer iton = Integer.parseInt((task.getResult().getValue()).toString());
                                 Integer ixoa = Integer.parseInt(soluong.getText().toString().trim());
-                                dbtonkho.setValue(String.valueOf(iton-ixoa));
+                                dbtonkho.setValue(iton-ixoa);
                                 reference.child(String.valueOf(i_id)).removeValue();
                                 Toast.makeText(getApplicationContext(),"Xóa thành công!",Toast.LENGTH_LONG).show();
                                 finish();

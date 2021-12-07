@@ -90,7 +90,7 @@ public class ImportBill extends AppCompatActivity {
                         else {
                             Integer iton = Integer.parseInt((task.getResult().getValue()).toString());
                             Integer ithem = Integer.parseInt(ssoluong);
-                            dbtonkho.setValue(String.valueOf(iton+ithem));
+                            dbtonkho.setValue(iton+ithem);
                         }
                     }
                 });

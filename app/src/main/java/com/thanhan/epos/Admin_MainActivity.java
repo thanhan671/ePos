@@ -11,8 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Admin_MainActivity extends AppCompatActivity {
-    TextView logout;
-    private Button btnLoaiHang, btnHangHoa, btnAC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +22,11 @@ public class Admin_MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Admin_MainActivity.this, ImportBill_MainActivity.class);
-        matching();
-        logout = findViewById(R.id.textView2);
-        logout.setOnClickListener(new View.OnClickListener(){
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.tv_dangxuat).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(Admin_MainActivity.this, LoginActivity.class);
@@ -36,7 +36,7 @@ public class Admin_MainActivity extends AppCompatActivity {
             }
         });
 
-        btnLoaiHang.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_danhmuc).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Admin_MainActivity.this, AddProductTypeActivity.class);
@@ -52,7 +52,7 @@ public class Admin_MainActivity extends AppCompatActivity {
             }
         });
 
-        btnHangHoa.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_hanghoa).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Admin_MainActivity.this, ViewListProductActivity.class);
@@ -60,18 +60,20 @@ public class Admin_MainActivity extends AppCompatActivity {
             }
         });
 
-        btnAC.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_taikhoan).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Admin_MainActivity.this, StaffAcountActivity.class);
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.btn_admin_thongke).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
-    private void matching() {
-        btnLoaiHang = (Button) findViewById(R.id.danhmuc);
-        btnHangHoa = (Button) findViewById(R.id.hanghoa);
-        btnAC = (Button) findViewById(R.id.taikhoan);
-    }
 }
