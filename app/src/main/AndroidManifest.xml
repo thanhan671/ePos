@@ -15,6 +15,41 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EPos">
         <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity android:name=".ViewListProductActivity"></activity>
+        <activity android:name=".AddProductActivity" />
+        <activity
+            android:name=".EditStaffAcountActivity"
+            android:exported="false" />
+        <activity
+
+            android:name=".ExportData.ExportAddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ExportData.ExportItemActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ExportData.ListExportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ExportData.listExportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ExportData.ExportBill_MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListExport"
+            android:exported="false" />
+        <activity
+            android:name=".ExportBillActivity"
+            android:exported="false" />
+        <activity
             android:name=".ImportBill"
             android:exported="false" />
         <activity
@@ -31,21 +66,27 @@
             android:exported="false" />
         <activity
             android:name=".Staff_MainActivity"
+            android:name=".StaffAcountActivity"
             android:exported="false" />
+        <activity
+            android:name=".AddAcountStaffActivity"
+            android:exported="false" />
+        <activity android:name=".AddProductTypeActivity" />
+        <activity android:name=".Staff_MainActivity" />
         <activity
             android:name=".Admin_MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".CaptureAct"
             android:screenOrientation="fullSensor"
             android:stateNotNeeded="true"
+            android:name=".Capture"
+            android:screenOrientation="fullSensor"
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
             android:windowSoftInputMode="stateAlwaysHidden" />
+
     </application>
 
 </manifest>
