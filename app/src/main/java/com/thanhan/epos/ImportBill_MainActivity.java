@@ -79,7 +79,7 @@ public class ImportBill_MainActivity extends AppCompatActivity {
                 builder.setPositiveButton("Thêm phiếu nhập", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        hanghoa.addValueEventListener(new ValueEventListener() {
+                        hanghoa.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 for (DataSnapshot item : snapshot.getChildren()) {
