@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundedit"
     tools:context=".EditStaffAcountActivity">
 
     <TextView
@@ -15,7 +16,7 @@
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#FF0000"
-        android:textSize="34sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -249,12 +250,14 @@
         android:id="@+id/btn_editAcc_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="44dp"
+        android:layout_marginEnd="20dp"
         android:text="Hủy"
+        android:backgroundTint="#EA8484"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_editAcc_update"
         app:layout_constraintTop_toBottomOf="@+id/scrV_editAcc"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.253" />
 
     <Button
         android:id="@+id/btn_editAcc_update"
@@ -263,6 +266,8 @@
         android:layout_marginEnd="28dp"
         android:layout_weight="1"
         android:text="Sửa"
+        android:backgroundTint="#EA8484"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrV_editAcc"
@@ -277,6 +282,8 @@
         app:layout_constraintEnd_toStartOf="@+id/btn_editAcc_cancel"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="#EA8484"
+        android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@+id/scrV_editAcc"
         app:layout_constraintVertical_bias="0.25" />
 

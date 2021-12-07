@@ -21,7 +21,7 @@
             android:layout_marginTop="10dp"
             android:text="TextView"
             android:textAlignment="center"
-            android:textColor="#FB8662"
+            android:textColor="#EA8484"
             android:textSize="34sp" />
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                 android:id="@+id/edt_maCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="26dp"
+                android:layout_marginLeft="25dp"
                 android:ems="10"
                 android:enabled="false"
                 android:text="Mã Code"
@@ -71,7 +71,7 @@
                 android:id="@+id/edt_IdDon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="26dp"
+                android:layout_marginLeft="48dp"
                 android:ems="10"
                 android:enabled="true"
                 android:text="Mã id Dơn"
@@ -98,7 +98,7 @@
                 android:id="@+id/edt_TenHang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="19dp"
+                android:layout_marginLeft="18dp"
                 android:ems="10"
                 android:enabled="false"
                 android:text="Tên Hàng"
@@ -125,7 +125,7 @@
                 android:id="@+id/edt_soLuong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="18dp"
                 android:ems="10"
                 android:text="Số Lượng"
                 android:inputType="number"
@@ -149,7 +149,7 @@
                 android:id="@+id/edt_NgayNhap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
+                android:layout_marginLeft="10dp"
                 android:ems="10"
                 android:enabled="false"
                 android:text="Ngày Xuất"
@@ -209,41 +209,62 @@
                 android:textSize="24sp" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_UpdateExportItem"
-            android:layout_width="180dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#FD8746"
-            android:text="CẬP NHẬT"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_DelExportItem"
-            android:layout_width="180dp"
-            android:layout_height="50dp"
-            android:backgroundTint="#FD8746"
-            android:text="XÓA"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
-        <Button
-            android:id="@+id/btn_PrintExportItem"
-            android:layout_width="180dp"
-            android:layout_height="50dp"
-            android:text="IN"
-            android:backgroundTint="#FD8746"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
-        <Button
-            android:id="@+id/btn_Cancel"
-            android:layout_width="180dp"
-            android:layout_height="50dp"
-            android:text="HỦY"
-            android:backgroundTint="#FD8746"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_UpdateExportItem"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:backgroundTint="#EA8484"
+                    android:text="CẬP NHẬT"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_DelExportItem"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:backgroundTint="#EA8484"
+                    android:text="XÓA"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_PrintExportItem"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:backgroundTint="#EA8484"
+                    android:text="IN"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_Cancel"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:backgroundTint="#EA8484"
+                    android:text="HỦY"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

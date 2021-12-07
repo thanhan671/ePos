@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddAcountStaffActivity">
+    tools:context=".AddAcountStaffActivity"
+    android:background="@drawable/backgroundedit">
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="4dp"
         android:text="THÊM TÀI KHOẢN NHÂN VIÊN"
         android:textAlignment="center"
         android:textColor="#F10707"
-        android:textSize="34sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -249,6 +250,8 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="HỦY"
+                android:backgroundTint="#EA8484"
+                android:textColor="@color/black"
                 android:textSize="24sp" />
 
             <Button
@@ -256,6 +259,8 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="Thêm"
+                android:backgroundTint="#EA8484"
+                android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>
     </ScrollView>

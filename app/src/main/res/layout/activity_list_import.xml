@@ -19,7 +19,7 @@
 
             <ImageButton
                 android:id="@+id/btn_back"
-                android:layout_width="20dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
@@ -33,9 +33,9 @@
                 android:layout_weight="5"
                 android:textAlignment="center"
                 android:textColor="#EA8484"
-                android:textSize="50sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
-                android:text="ePos" />
+                android:text="Danh sách phiếu nhập" />
         </LinearLayout>
 
         <ListView
