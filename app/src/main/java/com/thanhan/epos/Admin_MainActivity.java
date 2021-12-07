@@ -18,7 +18,7 @@ public class Admin_MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_main);
 
 
-        findViewById(R.id.btn_admin_nhaphang).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_ad_nhaphang).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Admin_MainActivity.this, ImportBill_MainActivity.class);
@@ -26,7 +26,7 @@ public class Admin_MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.tv_dangxuat).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.tv_ad_dangxuat).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(Admin_MainActivity.this, LoginActivity.class);
@@ -36,7 +36,7 @@ public class Admin_MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_danhmuc).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_ad_danhmuc).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Admin_MainActivity.this, AddProductTypeActivity.class);
@@ -44,7 +44,7 @@ public class Admin_MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_admin_xuathang).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_ad_xuathang).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentXuatHang = new Intent(Admin_MainActivity.this, ExportBill_MainActivity.class);
@@ -52,7 +52,7 @@ public class Admin_MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_hanghoa).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_ad_hanghoa).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Admin_MainActivity.this, ViewListProductActivity.class);
@@ -60,7 +60,7 @@ public class Admin_MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_taikhoan).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_ad_taikhoan).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Admin_MainActivity.this, StaffAcountActivity.class);
@@ -68,7 +68,7 @@ public class Admin_MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_admin_thongke).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_ad_thongke).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

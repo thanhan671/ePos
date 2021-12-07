@@ -29,7 +29,7 @@
                 android:text="ePos" />
 
             <TextView
-                android:id="@+id/tv_dangxuat"
+                android:id="@+id/tv_ad_dangxuat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
@@ -59,7 +59,7 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_hanghoa"
+                    android:id="@+id/btn_ad_hanghoa"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:text="HÀNG HÓA"
@@ -67,7 +67,7 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
                 <Button
-                    android:id="@+id/btn_danhmuc"
+                    android:id="@+id/btn_ad_danhmuc"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:text="DANH MỤC \nHÀNG HÓA"
@@ -75,7 +75,7 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
                 <Button
-                    android:id="@+id/btn_taikhoan"
+                    android:id="@+id/btn_ad_taikhoan"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:text="TÀI KHOẢN"
@@ -92,7 +92,7 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_admin_nhaphang"
+                    android:id="@+id/btn_ad_nhaphang"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:text="NHẬP HÀNG"
@@ -100,7 +100,7 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
                 <Button
-                    android:id="@+id/btn_admin_xuathang"
+                    android:id="@+id/btn_ad_xuathang"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:text="XUẤT HÀNG"
@@ -108,7 +108,7 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
                 <Button
-                    android:id="@+id/btn_admin_thongke"
+                    android:id="@+id/btn_ad_thongke"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:text="THỐNG KÊ"
