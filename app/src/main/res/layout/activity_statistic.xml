@@ -146,7 +146,7 @@
     android:id="@+id/btn_phieuxuat"
     android:layout_width="match_parent"
     android:layout_height="70dp"
-    android:text="Phiếu Xuất"
+    android:text="Phiếu Xuất "
     android:backgroundTint="#EA8484"
     android:textColor="@color/black"
     android:textStyle="bold"/>
