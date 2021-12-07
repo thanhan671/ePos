@@ -15,20 +15,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EPos">
         <activity
+            android:name=".Statistic"
+            android:exported="false" >
+
+        </activity>
+        <activity
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ViewListProductActivity"></activity>
+        <activity android:name=".ViewListProductActivity" />
         <activity android:name=".AddProductActivity" />
         <activity
             android:name=".EditStaffAcountActivity"
             android:exported="false" />
         <activity
-
             android:name=".ExportData.ExportAddActivity"
             android:exported="false" />
         <activity
@@ -62,12 +67,12 @@
         <activity android:name=".Staff_MainActivity" />
         <activity
             android:name=".Admin_MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".CaptureAct"
             android:screenOrientation="fullSensor"
             android:stateNotNeeded="true"
-            android:windowSoftInputMode="stateAlwaysHidden"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden" />
     </application>
+
 </manifest>
