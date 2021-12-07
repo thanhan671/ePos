@@ -50,19 +50,26 @@ public class EditStaffAcountActivity extends AppCompatActivity {
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference reference = database.getReference("NhanVien");
 
-                    reference.child(sid).child("name").setValue(sname);
-                    reference.child(sid).child("address").setValue(saddress);
-                    reference.child(sid).child("gender").setValue(sgender);
-                    reference.child(sid).child("mobile").setValue(smobile);
-                    reference.child(sid).child("email").setValue(semail);
-                    reference.child(sid).child("username").setValue(susername);
-                    reference.child(sid).child("matkhau").setValue(spassword);
-                    Toast.makeText(getApplicationContext(), "Cập nhật thành công tài khoản" + sid, Toast.LENGTH_LONG).show();
-                    finish();
-                }catch (Exception e){
-                    Log.d("Error update",e.toString());
+
+                    if (sname.isEmpty() || saddress.isEmpty() || sgender.isEmpty() || smobile.isEmpty() || semail.isEmpty() ||
+                            susername.isEmpty() || spassword.isEmpty()) {
+                        Toast.makeText(EditStaffAcountActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                    } else {
+                        reference.child(sid).child("name").setValue(sname);
+                        reference.child(sid).child("address").setValue(saddress);
+                        reference.child(sid).child("gender").setValue(sgender);
+                        reference.child(sid).child("mobile").setValue(smobile);
+                        reference.child(sid).child("email").setValue(semail);
+                        reference.child(sid).child("username").setValue(susername);
+                        reference.child(sid).child("matkhau").setValue(spassword);
+                        Toast.makeText(getApplicationContext(), "Cập nhật thành công tài khoản" + sid, Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+                    }catch(Exception e){
+                        Log.d("Error update", e.toString());
+                    }
                 }
-            }
+
         });
 
         delete.setOnClickListener(new View.OnClickListener() {
