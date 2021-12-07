@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin_MainActivity">
-
+    tools:context=".ImportBill_MainActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,23 +16,25 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:srcCompat="@drawable/back"
+                tools:ignore="SpeakableTextPresentCheck" />
+
             <TextView
-                android:id="@+id/ten"
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
+                android:layout_weight="5"
                 android:textAlignment="center"
                 android:textColor="#EA8484"
                 android:textSize="50sp"
                 android:textStyle="bold"
                 android:text="ePos" />
-
-            <TextView
-                android:id="@+id/tv_nv_dangxuat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:text="Đăng xuất" />
         </LinearLayout>
 
         <ImageView
@@ -46,46 +47,35 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:layout_weight="3"
             android:layout_gravity="center_horizontal"
+            android:layout_weight="3"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:layout_marginTop="40dp"
+                android:padding="10dp"
+                android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_nv_nhaphang"
-                    android:layout_width="150dp"
+                    android:id="@+id/btn_quetnhap"
+                    android:layout_width="250dp"
                     android:layout_height="70dp"
+                    android:text="QUÉT MÃ HÀNG"
                     android:backgroundTint="#EA8484"
-                    android:text="NHẬP HÀNG"
                     android:textColor="@color/black"
-                    android:textStyle="bold" />
-
+                    android:textStyle="bold"/>
                 <Button
-                    android:id="@+id/btn_nv_xuathang"
-                    android:layout_width="150dp"
+                    android:id="@+id/btn_phieunhap"
+                    android:layout_width="250dp"
                     android:layout_height="70dp"
+                    android:text="PHIẾU NHẬP"
                     android:backgroundTint="#EA8484"
-                    android:text="XUẤT HÀNG"
                     android:textColor="@color/black"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
-                <Button
-                    android:id="@+id/btn_nv_thongke"
-                    android:layout_width="150dp"
-                    android:layout_height="70dp"
-                    android:backgroundTint="#EA8484"
-                    android:text="THỐNG KÊ"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -161,7 +161,7 @@ public class AddProductActivity extends AppCompatActivity {
 
     private void scanCode() {
         IntentIntegrator integrator = new IntentIntegrator(this);
-        integrator.setCaptureActivity(Capture.class);
+        integrator.setCaptureActivity(CaptureAct.class);
         integrator.setOrientationLocked(false);
         integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
         integrator.setPrompt("Đang quét mã");
