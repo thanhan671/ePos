@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.thanhan.epos.R;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -32,7 +33,8 @@ public class ExportAddActivity extends AppCompatActivity {
     EditText id, code, tenhang, soluong;
     String scode;
     Integer maxId = 0;
-    String dayNow = org.threeten.bp.LocalDateTime.now().toString();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault());
+    String currentDateandTime = sdf.format(new Date());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +70,8 @@ public class ExportAddActivity extends AppCompatActivity {
             String scode = code.getText().toString().trim();
             String stenhang = tenhang.getText().toString().trim();
             String ssoluong = soluong.getText().toString().trim();
-            String sngaynhap = dayNow;
-            String sngaysua = dayNow;
+            String sngaynhap = currentDateandTime;
+            String sngaysua = currentDateandTime;
 
             reference.child(sid).push();
 
