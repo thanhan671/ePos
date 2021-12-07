@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ExportData.ExportItemActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backgroundedit"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        tools:layout_editor_absoluteX="-147dp"
+        tools:layout_editor_absoluteY="-365dp">
+
+        <TextView
+            android:id="@+id/tv_phieuXuat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="#FB8662"
+            android:textSize="34sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:id="@+id/tv_macode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mã Code:"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_maCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:ems="10"
+                android:enabled="false"
+                android:text="Mã Code"
+                android:inputType="textPersonName"
+                android:textColor="#717171"
+                android:textSize="24sp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:id="@+id/tv_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID Đơn:"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edt_IdDon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:ems="10"
+                android:enabled="true"
+                android:text="Mã id Dơn"
+                android:inputType="textPersonName"
+                android:textColor="#717171"
+                android:textSize="24sp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp">
+            <TextView
+                android:id="@+id/tv_tenHang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên Hàng:"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/edt_TenHang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="19dp"
+                android:ems="10"
+                android:enabled="false"
+                android:text="Tên Hàng"
+                android:inputType="textPersonName"
+                android:textColor="#717171"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:id="@+id/tv_SoLuong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Số Lượng:"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/edt_soLuong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:ems="10"
+                android:text="Số Lượng"
+                android:inputType="number"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp">
+            <TextView
+                android:id="@+id/tv_ngayNhap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ngày Xuất:"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/edt_NgayNhap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:ems="10"
+                android:enabled="false"
+                android:text="Ngày Xuất"
+                android:inputType="textPersonName"
+                android:textColor="#717171"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp">
+            <TextView
+                android:id="@+id/tv_ngaySua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ngày Sửa:"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/edt_NgaySua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
+                android:ems="10"
+                android:enabled="false"
+                android:text="Ngày Sửa"
+                android:inputType="textPersonName"
+                android:textColor="#717171"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp">
+            <TextView
+                android:id="@+id/tv_ThanhTien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thành Tiền:"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/edt_ThanhTien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:enabled="false"
+                android:text="Thành Tiền"
+                android:inputType="textPersonName"
+                android:textColor="#717171"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_UpdateExportItem"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#FD8746"
+            android:text="CẬP NHẬT"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_DelExportItem"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#FD8746"
+            android:text="XÓA"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/btn_PrintExportItem"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:text="IN"
+            android:backgroundTint="#FD8746"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+        <Button
+            android:id="@+id/btn_Cancel"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:text="HỦY"
+            android:backgroundTint="#FD8746"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

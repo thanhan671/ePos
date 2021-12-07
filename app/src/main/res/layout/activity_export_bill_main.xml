@@ -4,23 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Staff_MainActivity">
+    tools:context=".ExportData.ExportBill_MainActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Xin chào ...!" />
-
-        <ImageView
-            android:id="@+id/imageView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btn_goBack"
+                android:layout_width="43dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                app:srcCompat="@drawable/back"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/textViewXuat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:textAlignment="center"
+                android:textColor="#FF9A57"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                android:text="Phiếu Xuất" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
             android:layout_weight="1"
             android:src="@drawable/background" />
 
@@ -34,34 +54,29 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
                 android:padding="10dp"
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_nv_nhaphang"
+                    android:id="@+id/btn_quetXuat"
                     android:layout_width="250dp"
                     android:layout_height="70dp"
-                    android:text="NHẬP HÀNG"
-                    android:backgroundTint="#EA8484"
+                    android:text="QUÉT MÃ HÀNG"
+                    android:backgroundTint="#FF9358"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
                 <Button
-                    android:id="@+id/btn_nv_xuathang"
+                    android:id="@+id/btn_phieuXuatHang"
                     android:layout_width="250dp"
                     android:layout_height="70dp"
-                    android:text="XUẤT HÀNG"
-                    android:backgroundTint="#EA8484"
+                    android:text="PHIẾU XUẤT"
+                    android:backgroundTint="#FF9358"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
-                <Button
-                    android:id="@+id/btn_nv_thongke"
-                    android:layout_width="250dp"
-                    android:layout_height="70dp"
-                    android:text="THỐNG KÊ"
-                    android:backgroundTint="#EA8484"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"/>
+
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Eposss/ePos/app/src/main/res/layout/activity_export_add.xml" value="0.1" />
+        <entry key="..\:/Eposss/ePos/app/src/main/res/layout/activity_export_item.xml" value="0.19895833333333332" />
+        <entry key="..\:/Eposss/ePos/app/src/main/res/layout/activity_import_bill.xml" value="0.19895833333333332" />
+        <entry key="..\:/Eposss/ePos/app/src/main/res/layout/activity_scan_product.xml" value="0.19895833333333332" />
+        <entry key="..\:/Eposss/ePos/app/src/main/res/layout/activity_staff_main.xml" value="0.19895833333333332" />
         <entry key="..\:/ProjectFinal/ePos/app/src/main/res/layout/activity_admin_main.xml" value="0.259375" />
         <entry key="..\:/ProjectFinal/ePos/app/src/main/res/layout/activity_staff_main.xml" value="0.259375" />
         <entry key="..\:/ePos/app/src/main/res/layout/activity_add_acount_staff.xml" value="0.21927083333333333" />
