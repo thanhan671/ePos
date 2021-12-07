@@ -139,7 +139,7 @@ public class ExportItemActivity extends AppCompatActivity {
         DatabaseReference dbtonkho = database.getReference().child("HangHoa").child(codeHang).child("tonKho");
         if (codePhieu.equals(codeHang)) {
             AlertDialog.Builder builder = new AlertDialog.Builder(ExportItemActivity.this);
-            builder.setTitle("Bạn có muốn xóa phiếu Xuất này?");
+            builder.setTitle("Bạn có muốn xóa phiếu xuất này?");
             builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -177,7 +177,7 @@ public class ExportItemActivity extends AppCompatActivity {
     private void getExportItemDetail() {
         Intent intent = getIntent();
         i_id = intent.getStringExtra("ID");
-        sophieuXuat.setText("Phiếu nhập số: "+String.valueOf(i_id));
+        sophieuXuat.setText("Phiếu xuất số: "+String.valueOf(i_id));
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("PhieuXuat");
         reference.child(String.valueOf(i_id)).addListenerForSingleValueEvent(new ValueEventListener() {

@@ -52,7 +52,8 @@ public class ImportBill_MainActivity extends AppCompatActivity {
             }
         });
     }
-    private void quetma(){
+
+    private void quetma() {
         IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.setCaptureActivity(CaptureAct.class);
         integrator.setOrientationLocked(false);
@@ -62,10 +63,10 @@ public class ImportBill_MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
-        if (result != null){
-            if (result.getContents() != null){
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() != null) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage(result.getContents());
                 builder.setTitle("Code sản phẩm");
@@ -86,21 +87,23 @@ public class ImportBill_MainActivity extends AppCompatActivity {
                                     listCode.add(item.getKey());
                                 }
                                 for (int i = 0; i < listCode.size(); i++) {
-                                    if (macode.equals(String.valueOf(listCode.get(i)))){
+                                    if (macode.equals(String.valueOf(listCode.get(i)))) {
                                         ssCode = true;
                                         break;
                                     }
                                 }
-                                if (ssCode == true){
+                                if (ssCode == true) {
                                     Intent intent = new Intent(getApplicationContext(), ImportBill.class);
                                     intent.putExtra("code", macode);
                                     startActivity(intent);
-                                }
-                                else {
+                                } else {
                                     Toast.makeText(getApplicationContext(),
-                                            "Sản phẩm không tồn tại!",Toast.LENGTH_LONG).show();
+                                            "Sản phẩm không tồn tại!" +
+                                                    "/n Vui lòng liên hệ quản lý để thêm sản phẩm!"
+                                            , Toast.LENGTH_LONG).show();
                                 }
                             }
+
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
                                 Log.d("Loi_detail", error.toString());
@@ -116,12 +119,11 @@ public class ImportBill_MainActivity extends AppCompatActivity {
 
                 AlertDialog dialog = builder.create();
                 dialog.show();
+            } else {
+                Toast.makeText(this, "Không có kết quả", Toast.LENGTH_LONG).show();
             }
-            else {
-                Toast.makeText(this,"Không có kết quả",Toast.LENGTH_LONG).show();
-            }
-        }else {
-            super.onActivityResult(requestCode,resultCode,data);
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 }
