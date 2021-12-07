@@ -76,50 +76,53 @@ public class UpdateImportBill extends AppCompatActivity{
             String codePhieu = code.getText().toString().trim();
             String codeHang = hanghoa.child(codePhieu).getKey();
             DatabaseReference dbtonkho = hanghoa.child(codeHang).child("tonKho");
-
-            dbtonkho.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DataSnapshot> task) {
-                    if (!task.isSuccessful()) {
-                        Log.e("firebase", "Error getting data", task.getException());
-                    }
-                    else {
-                        Integer iton = Integer.parseInt((task.getResult().getValue()).toString());
-                        Integer icapnhat = Integer.parseInt(soluong.getText().toString().trim());
-                        reference.child(String.valueOf(i_id)).child("soLuong").get().addOnCompleteListener(
-                                new OnCompleteListener<DataSnapshot>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                        Integer idau = Integer.parseInt((task.getResult().getValue()).toString());
-                                        Integer idoi = idau-icapnhat;
-                                        dbtonkho.setValue(String.valueOf(iton-idoi));
-                                    }
-                                }
-                        );
-                    }
-                }
-            });
-
             DatabaseReference dbgia = hanghoa.child(codeHang).child("donGiaNhap");
-            dbgia.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DataSnapshot> task) {
-                    if (!task.isSuccessful()) {
-                        Log.e("firebase", "Error getting data", task.getException());
-                    }
-                    else {
-                        Integer igia = Integer.parseInt((task.getResult().getValue()).toString());
-                        Integer icapnhat = Integer.parseInt(soluong.getText().toString().trim());
-                        reference.child(String.valueOf(i_id)).child("thanhTien").setValue(String.valueOf(igia*icapnhat));
-                        reference.child(String.valueOf(i_id)).child("soLuong").setValue(ssoluong);
-                        reference.child(String.valueOf(i_id)).child("ngayThayDoi").setValue(sngaysua);
-                    }
-                }
-            });
 
-            Toast.makeText(UpdateImportBill.this,
-                    "Cập nhật thành công!", Toast.LENGTH_LONG).show();
-            finish();
+            if (ssoluong.isEmpty()==false){
+                dbtonkho.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if (!task.isSuccessful()) {
+                            Log.e("firebase", "Error getting data", task.getException());
+                        }
+                        else {
+                            Integer iton = Integer.parseInt((task.getResult().getValue()).toString());
+                            Integer icapnhat = Integer.parseInt(soluong.getText().toString().trim());
+                            reference.child(String.valueOf(i_id)).child("soLuong").get()
+                                    .addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                            Integer idau = Integer.parseInt((task.getResult().getValue()).toString());
+                                            Integer idoi = idau-icapnhat;
+                                            dbtonkho.setValue(String.valueOf(iton-idoi));
+                                        }
+                                    }
+                            );
+                        }
+                    }
+                });
+                dbgia.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if (!task.isSuccessful()) {
+                            Log.e("firebase", "Error getting data", task.getException());
+                        }
+                        else {
+                            Integer igia = Integer.parseInt((task.getResult().getValue()).toString());
+                            Integer icapnhat = Integer.parseInt(soluong.getText().toString().trim());
+                            reference.child(String.valueOf(i_id)).child("thanhTien").setValue(String.valueOf(igia*icapnhat));
+                            reference.child(String.valueOf(i_id)).child("soLuong").setValue(ssoluong);
+                            reference.child(String.valueOf(i_id)).child("ngayThayDoi").setValue(sngaysua);
+                        }
+                    }
+                });
+                Toast.makeText(UpdateImportBill.this,
+                        "Cập nhật thành công!", Toast.LENGTH_LONG).show();
+                finish();
+            }else {
+                Toast.makeText(getApplicationContext(),
+                        "Vui lòng nhập số lượng hàng!", Toast.LENGTH_LONG).show();
+            }
         }catch (Exception e){
             Log.d("error update", e.toString());
         }
