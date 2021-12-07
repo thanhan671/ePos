@@ -21,7 +21,7 @@
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="415dp"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,8 +65,8 @@
                     android:id="@+id/et_addProduct_maCode"
                     android:layout_width="245dp"
                     android:layout_height="55dp"
+                    android:layout_marginStart="6dp"
                     android:layout_alignParentStart="true"
-                    android:layout_marginStart="10dp"
                     android:ems="10"
                     android:hint="Mã Barcode"
                     android:inputType="textPersonName"
@@ -176,16 +176,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recV_addProduct"
-        android:layout_width="380dp"
-        android:layout_height="285dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_addProduct_addPro">
-
-    </androidx.recyclerview.widget.RecyclerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
