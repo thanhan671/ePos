@@ -1,8 +1,10 @@
 package com.thanhan.epos;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -65,10 +67,10 @@ public class EditStaffAcountActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Cập nhật thành công tài khoản" + sid, Toast.LENGTH_LONG).show();
                         finish();
                     }
-                    }catch(Exception e){
-                        Log.d("Error update", e.toString());
-                    }
+                } catch (Exception e) {
+                    Log.d("Error update", e.toString());
                 }
+            }
 
         });
 
@@ -78,10 +80,25 @@ public class EditStaffAcountActivity extends AppCompatActivity {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference reference = database.getReference("NhanVien");
 
-                reference.child(String.valueOf(i_id)).removeValue();
-                Toast.makeText(getApplicationContext(),"Xóa thành công tài khoản",Toast.LENGTH_LONG).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(EditStaffAcountActivity.this);
+                builder.setTitle("Bạn có muốn xóa tài khoản này?");
+                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        reference.child(String.valueOf(i_id)).removeValue();
+                        Toast.makeText(getApplicationContext(), "Xóa thành công tài khoản", Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+                }).setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
 
-                finish();
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
             }
         });
     }
@@ -113,7 +130,7 @@ public class EditStaffAcountActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.d("Loi_detail",error.toString());
+                Log.d("Loi_detail", error.toString());
             }
         });
 

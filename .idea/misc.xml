@@ -71,6 +71,7 @@
         <entry key="..\:/Users/CCLaptop/Downloads/ePossss/app/src/main/res/layout/product_item.xml" value="0.25416666666666665" />
         <entry key="..\:/ePos/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1962962962962963" />
         <entry key="..\:/ePos/app/src/main/res/drawable/ic_launcher_background.xml" value="0.16296296296296298" />
+        <entry key="..\:/ePos/app/src/main/res/layout/activity_account_main.xml" value="0.259375" />
         <entry key="..\:/ePos/app/src/main/res/layout/activity_add_acount_staff.xml" value="0.21927083333333333" />
         <entry key="..\:/ePos/app/src/main/res/layout/activity_add_admin.xml" value="0.26992753623188404" />
         <entry key="..\:/ePos/app/src/main/res/layout/activity_add_product_type.xml" value="0.276268115942029" />
@@ -79,6 +80,8 @@
         <entry key="..\:/ePos/app/src/main/res/layout/activity_admin_main.xml" value="0.276268115942029" />
         <entry key="..\:/ePos/app/src/main/res/layout/activity_edit_admin.xml" value="0.29030797101449274" />
         <entry key="..\:/ePos/app/src/main/res/layout/activity_edit_staff_acount.xml" value="0.21927083333333333" />
+        <entry key="..\:/ePos/app/src/main/res/layout/activity_import_bill.xml" value="0.259375" />
+        <entry key="..\:/ePos/app/src/main/res/layout/activity_import_bill_main.xml" value="0.259375" />
         <entry key="..\:/ePos/app/src/main/res/layout/activity_login.xml" value="0.259375" />
         <entry key="..\:/ePos/app/src/main/res/layout/activity_staff_acount.xml" value="0.2658514492753623" />
         <entry key="..\:/ePos/app/src/main/res/layout/activity_staff_main.xml" value="0.276268115942029" />

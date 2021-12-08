@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ public class StaffAcountActivity extends AppCompatActivity {
     private ListView listStaffAcc;
     private ArrayAdapter<String> adapter;
     private ImageView back;
+    private Button them;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,17 @@ public class StaffAcountActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(StaffAcountActivity.this, android.R.layout.simple_dropdown_item_1line);
         listStaffAcc.setAdapter(adapter);
 
+        them.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String data = adapter.getItem(adapter.getCount()-1);
+                String sid = data.split("\n")[0];
+                int i_id = Integer.parseInt(sid) + 1;
+                Intent intent = new Intent(StaffAcountActivity.this, AddAcountStaffActivity.class);
+                intent.putExtra("ID",i_id);
+                startActivity(intent);
+            }
+        });
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("NhanVien");
 
@@ -79,29 +92,6 @@ public class StaffAcountActivity extends AppCompatActivity {
     private void matching() {
         listStaffAcc = (ListView) findViewById(R.id.lv_staffAccList);
         back = (ImageView) findViewById(R.id.imgV_staffAcc_back);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.main_menuac,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId()==R.id.mnuAddAC){
-            //new activity
-            String data = adapter.getItem(adapter.getCount()-1);
-            String sid = data.split("\n")[0];
-            int i_id = Integer.parseInt(sid) + 1;
-            Intent intent = new Intent(StaffAcountActivity.this, AddAcountStaffActivity.class);
-            intent.putExtra("ID",i_id);
-            startActivity(intent);
-        }
-        else if(item.getItemId()==R.id.mnuAdminAC){
-            Toast.makeText(this,"Wellcom Admin",Toast.LENGTH_LONG).show();
-        }
-        return super.onOptionsItemSelected(item);
+        them = (Button) findViewById(R.id.btn_acc_add);
     }
 }

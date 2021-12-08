@@ -9,7 +9,7 @@
     <ListView
         android:id="@+id/lv_staffAccList"
         android:layout_width="365dp"
-        android:layout_height="wrap_content"
+        android:layout_height="500dp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -40,5 +40,20 @@
         app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_acc_add"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#EA8484"
+        android:text="Thêm tài khoản"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lv_staffAccList"
+        app:layout_constraintVertical_bias="0.266" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
