@@ -26,7 +26,7 @@ public class Admin_MainActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.tv_ad_dangxuat).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.imv_ad_dangxuat).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 finish();

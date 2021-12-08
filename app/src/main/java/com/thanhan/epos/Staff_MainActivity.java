@@ -16,7 +16,7 @@ public class Staff_MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staff_main);
 
-        findViewById(R.id.tv_nv_dangxuat).setOnClickListener(new View.OnClickListener(){
+        findViewById(R.id.imv_nv_dangxuat).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 finish();
