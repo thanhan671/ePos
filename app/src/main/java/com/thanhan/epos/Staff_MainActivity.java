@@ -19,8 +19,6 @@ public class Staff_MainActivity extends AppCompatActivity {
         findViewById(R.id.tv_nv_dangxuat).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(Staff_MainActivity.this, LoginActivity.class);
-                startActivity(intent);
                 finish();
                 Toast.makeText(Staff_MainActivity.this, "ĐĂNG XUẤT THÀNH CÔNG", Toast.LENGTH_SHORT).show();
             }

@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.thanhan.epos.R;
 import com.thanhan.epos.UpdateImportBill;
 
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -176,6 +177,9 @@ public class ExportItemActivity extends AppCompatActivity {
         Intent intent = getIntent();
         i_id = intent.getStringExtra("ID");
         sophieuXuat.setText("Phiếu xuất số: "+String.valueOf(i_id));
+
+        NumberFormat currentLocale = NumberFormat.getInstance();
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("PhieuXuat");
         reference.child(String.valueOf(i_id)).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -189,7 +193,8 @@ public class ExportItemActivity extends AppCompatActivity {
                     soLuong.setText(hashMap.get("soLuong").toString());
                     ngayXuat.setText(hashMap.get("ngayXuat").toString());
                     ngaySua.setText(hashMap.get("ngayThayDoi").toString());
-                    thanhTien.setText(hashMap.get("thanhTien").toString());
+                    Integer tien = Integer.parseInt(hashMap.get("thanhTien").toString());
+                    thanhTien.setText(currentLocale.format(tien)+"đ");
                 } catch (Exception e) {
                     Log.d("Error Json File",e.toString());
                 }

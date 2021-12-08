@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -178,6 +179,9 @@ public class UpdateImportBill extends AppCompatActivity{
         Intent intent = getIntent();
         i_id = intent.getStringExtra("ID");
         sophieu.setText("Phiếu nhập số: "+String.valueOf(i_id));
+
+        NumberFormat currentLocale = NumberFormat.getInstance();
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("PhieuNhap");
         reference.child(String.valueOf(i_id)).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -190,7 +194,8 @@ public class UpdateImportBill extends AppCompatActivity{
                     soluong.setText(hashMap.get("soLuong").toString());
                     ngaynhap.setText(hashMap.get("ngayNhap").toString());
                     ngaysua.setText(hashMap.get("ngayThayDoi").toString());
-                    thanhtien.setText(hashMap.get("thanhTien").toString());
+                    Integer tien = Integer.parseInt(hashMap.get("thanhTien").toString());
+                    thanhtien.setText(currentLocale.format(tien)+"đ");
                 } catch (Exception e) {
                     Log.d("Loi_json",e.toString());
                 }

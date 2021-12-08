@@ -17,6 +17,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.thanhan.epos.ExportData.ListExportActivity;
 
+import java.text.NumberFormat;
 import java.util.Map;
 
 public class Statistic extends AppCompatActivity {
@@ -32,6 +33,7 @@ public class Statistic extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistic);
         matching();
+        NumberFormat currentLocale = NumberFormat.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("PhieuNhap");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -43,7 +45,7 @@ public class Statistic extends AppCompatActivity {
                     int TValue = Integer.parseInt(String.valueOf(thanhtien));
                     sum += TValue;
 
-                    mTotalNhap.setText(String.valueOf(sum));
+                    mTotalNhap.setText(currentLocale.format(sum)+"đ");
                 }
             }
 
@@ -63,7 +65,7 @@ public class Statistic extends AppCompatActivity {
                     int TValue = Integer.parseInt(String.valueOf(thanhtien));
                     sum += TValue;
 
-                    mTotalXuat.setText(String.valueOf(sum));
+                    mTotalXuat.setText(currentLocale.format(sum)+"đ");
                 }
             }
 
@@ -127,9 +129,9 @@ public class Statistic extends AppCompatActivity {
     }
 
     private void matching() {
-        mSoPhieuNhap = (TextView) findViewById(R.id.edt_PhieuNhap);
-        mTotalNhap = (TextView) findViewById(R.id.edt_TienNhap);
-        mSoPhieuXuat = (TextView) findViewById(R.id.edt_PhieuXuat);
-        mTotalXuat = (TextView) findViewById(R.id.edt_TienXuat);
+        mSoPhieuNhap = (TextView) findViewById(R.id.tv_PhieuNhap);
+        mTotalNhap = (TextView) findViewById(R.id.tv_TongNhap);
+        mSoPhieuXuat = (TextView) findViewById(R.id.tv_PhieuXuat);
+        mTotalXuat = (TextView) findViewById(R.id.tv_TongXuat);
     }
 }

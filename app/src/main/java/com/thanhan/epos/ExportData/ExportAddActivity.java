@@ -97,7 +97,7 @@ public class ExportAddActivity extends AppCompatActivity {
                         } else {
                             Integer iton = Integer.parseInt((task.getResult().getValue()).toString());
                             Integer ixuat = Integer.parseInt(ssoluong);
-                            dbtonkho.setValue(String.valueOf(iton - ixuat));
+                            dbtonkho.setValue(iton - ixuat);
                         }
                     }
                 });

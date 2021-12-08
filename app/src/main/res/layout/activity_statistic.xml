@@ -40,14 +40,12 @@
                 android:textSize="24dp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/edt_PhieuNhap"
+            <TextView
+                android:id="@+id/tv_PhieuNhap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
+                android:layout_marginLeft="15dp"
                 android:ems="10"
-                android:enabled="false"
-                android:inputType="textPersonName"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -67,14 +65,12 @@
                 android:textSize="24dp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/edt_PhieuXuat"
+            <TextView
+                android:id="@+id/tv_PhieuXuat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="19dp"
+                android:layout_marginLeft="20dp"
                 android:ems="10"
-                android:enabled="false"
-                android:inputType="textPersonName"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -89,19 +85,17 @@
                 android:id="@+id/tv_SoLuong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tiền Nhập:"
+                android:text="Tổng Tiền Nhập:"
                 android:textColor="@color/black"
                 android:textSize="24dp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/edt_TienNhap"
+            <TextView
+                android:id="@+id/tv_TongNhap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="5dp"
                 android:ems="10"
-                android:enabled="false"
-                android:inputType="number"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -116,19 +110,17 @@
                 android:id="@+id/tv_TienXuat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tiền Xuất:"
+                android:text="Tổng Tiền Xuất:"
                 android:textColor="@color/black"
                 android:textSize="24dp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/edt_TienXuat"
+            <TextView
+                android:id="@+id/tv_TongXuat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="22dp"
+                android:layout_marginLeft="12dp"
                 android:ems="10"
-                android:enabled="false"
-                android:inputType="textPersonName"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>

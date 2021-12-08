@@ -29,8 +29,6 @@ public class Admin_MainActivity extends AppCompatActivity {
         findViewById(R.id.tv_ad_dangxuat).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(Admin_MainActivity.this, LoginActivity.class);
-                startActivity(intent);
                 finish();
                 Toast.makeText(Admin_MainActivity.this, "ĐĂNG XUẤT THÀNH CÔNG", Toast.LENGTH_SHORT).show();
             }
