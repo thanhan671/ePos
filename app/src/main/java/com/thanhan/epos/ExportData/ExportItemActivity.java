@@ -95,7 +95,7 @@ public class ExportItemActivity extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<DataSnapshot> task) {
                                         Integer idau = Integer.parseInt((task.getResult().getValue()).toString());
                                         Integer idoi = idau-icapnhat;
-                                        dbtonkho.setValue(String.valueOf(iton-idoi));
+                                        dbtonkho.setValue(iton+idoi);
                                     }
                                 }
                         );
@@ -103,7 +103,7 @@ public class ExportItemActivity extends AppCompatActivity {
                 }
             });
 
-            DatabaseReference dbgia = hanghoa.child(codeHang).child("donGiaNhap");
+            DatabaseReference dbgia = hanghoa.child(codeHang).child("donGiaXuat");
             dbgia.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -130,7 +130,7 @@ public class ExportItemActivity extends AppCompatActivity {
 
     public void deleteExportItem(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("PhieuNhap");
+        DatabaseReference reference = database.getReference("PhieuXuat");
         DatabaseReference hanghoa = database.getReference("HangHoa");
         String codePhieu = macode.getText().toString().trim();
         String codeHang = hanghoa.child(codePhieu).getKey();
@@ -150,7 +150,7 @@ public class ExportItemActivity extends AppCompatActivity {
                             else {
                                 Integer iton = Integer.parseInt((task.getResult().getValue()).toString());
                                 Integer ixoa = Integer.parseInt(soLuong.getText().toString().trim());
-                                dbtonkho.setValue(String.valueOf(iton-ixoa));
+                                dbtonkho.setValue(iton+ixoa);
                                 reference.child(String.valueOf(i_id)).removeValue();
                                 Toast.makeText(getApplicationContext(),"Xóa thành công!",Toast.LENGTH_LONG).show();
                                 finish();

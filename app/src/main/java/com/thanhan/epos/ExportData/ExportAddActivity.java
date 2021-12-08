@@ -33,8 +33,8 @@ public class ExportAddActivity extends AppCompatActivity {
     EditText id, code, tenhang, soluong;
     String scode;
     Integer maxId = 0;
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault());
-    String currentDateandTime = sdf.format(new Date());
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+    String currentDate = sdf.format(new Date());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +55,13 @@ public class ExportAddActivity extends AppCompatActivity {
         addItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                themPhieuNhap();
+                themPhieuXuat();
             }
         });
     }
 
-    private void themPhieuNhap() {
-        try{
+    private void themPhieuXuat() {
+        try {
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference reference = database.getReference("PhieuXuat");
             DatabaseReference hanghoa = database.getReference("HangHoa");
@@ -70,8 +70,8 @@ public class ExportAddActivity extends AppCompatActivity {
             String scode = code.getText().toString().trim();
             String stenhang = tenhang.getText().toString().trim();
             String ssoluong = soluong.getText().toString().trim();
-            String sngaynhap = currentDateandTime;
-            String sngaysua = currentDateandTime;
+            String sngayxuat = currentDate;
+            String sngaysua = currentDate;
 
             reference.child(sid).push();
 
@@ -79,43 +79,40 @@ public class ExportAddActivity extends AppCompatActivity {
             reference.child(sid).child("id").setValue(sid);
             reference.child(sid).child("tenHang").setValue(stenhang);
             reference.child(sid).child("soLuong").setValue(ssoluong);
-            reference.child(sid).child("ngayNhap").setValue(sngaynhap);
+            reference.child(sid).child("ngayXuat").setValue(sngayxuat);
             reference.child(sid).child("ngayThayDoi").setValue(sngaysua);
 
             String codeHang = hanghoa.child(scode).getKey();
             DatabaseReference dbtonkho = hanghoa.child(codeHang).child("tonKho");
 
-            if (ssoluong.isEmpty()){
+            if (ssoluong.isEmpty()) {
                 Toast.makeText(getApplicationContext(),
                         "Vui lòng nhập số lương hàng!", Toast.LENGTH_LONG).show();
-            }
-            else {
+            } else {
                 dbtonkho.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DataSnapshot> task) {
                         if (!task.isSuccessful()) {
                             Log.e("firebase", "Error getting data", task.getException());
-                        }
-                        else {
+                        } else {
                             Integer iton = Integer.parseInt((task.getResult().getValue()).toString());
-                            Integer ithem = Integer.parseInt(ssoluong);
-                            dbtonkho.setValue(String.valueOf(iton+ithem));
+                            Integer ixuat = Integer.parseInt(ssoluong);
+                            dbtonkho.setValue(String.valueOf(iton - ixuat));
                         }
                     }
                 });
 
-                DatabaseReference dbgia = hanghoa.child(codeHang).child("donGiaNhap");
+                DatabaseReference dbgia = hanghoa.child(codeHang).child("donGiaXuat");
                 dbgia.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DataSnapshot> task) {
                         if (!task.isSuccessful()) {
                             Log.e("firebase", "Error getting data", task.getException());
-                        }
-                        else {
+                        } else {
                             Integer igia = Integer.parseInt((task.getResult().getValue()).toString());
-                            Integer ithem = Integer.parseInt(ssoluong);
+                            Integer ixuat = Integer.parseInt(ssoluong);
                             reference.child(sid).child("thanhTien")
-                                    .setValue(String.valueOf(igia*ithem));
+                                    .setValue(String.valueOf(igia * ixuat));
                         }
                     }
                 });
@@ -124,7 +121,7 @@ public class ExportAddActivity extends AppCompatActivity {
                         "Thêm phiếu xuất thành công!", Toast.LENGTH_LONG).show();
                 finish();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -132,8 +129,6 @@ public class ExportAddActivity extends AppCompatActivity {
     private void getProductDetail() {
         Intent intent = getIntent();
         scode = intent.getStringExtra("code");
-
-        String sngay= new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference phieuxuat = database.getReference("PhieuXuat");
@@ -164,7 +159,7 @@ public class ExportAddActivity extends AppCompatActivity {
                     code.setText(scode);
                     tenhang.setText(hashMap.get("tenHangHoa").toString());
                 } catch (Exception e) {
-                    Log.d("Loi_json",e.toString());
+                    Log.d("Loi_json", e.toString());
                 }
             }
 
