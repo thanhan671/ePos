@@ -98,8 +98,7 @@ public class ImportBill_MainActivity extends AppCompatActivity {
                                     startActivity(intent);
                                 } else {
                                     Toast.makeText(getApplicationContext(),
-                                            "Sản phẩm không tồn tại!" +
-                                                    "/n Vui lòng liên hệ quản lý để thêm sản phẩm!"
+                                            "Sản phẩm không tồn tại!Vui lòng liên hệ quản lý để thêm sản phẩm!"
                                             , Toast.LENGTH_LONG).show();
                                 }
                             }
