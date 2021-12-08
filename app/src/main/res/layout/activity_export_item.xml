@@ -213,7 +213,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -246,24 +246,16 @@
                 android:layout_marginLeft="10dp"
                 android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btn_PrintExportItem"
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
-                    android:backgroundTint="#EA8484"
-                    android:text="IN"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/btn_Cancel"
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
-                    android:backgroundTint="#EA8484"
-                    android:text="HỦY"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
             </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_Cancel"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:backgroundTint="#EA8484"
+                android:text="HỦY"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
         </LinearLayout>
 
     </LinearLayout>
