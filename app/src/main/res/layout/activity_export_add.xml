@@ -21,8 +21,9 @@
             android:layout_height="wrap_content"
             android:text="THÊM PHIẾU XUẤT"
             android:textAlignment="center"
-            android:textColor="#E12121"
-            android:textSize="34sp" />
+            android:textColor="#EA8484"
+            android:textSize="34sp"
+            android:textStyle="bold" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

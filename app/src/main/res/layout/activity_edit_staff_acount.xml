@@ -15,7 +15,7 @@
         android:text="CHỈNH SỬA TÀI KHOẢN NHÂN VIÊN"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="#FF0000"
+        android:textColor="#EA8484"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

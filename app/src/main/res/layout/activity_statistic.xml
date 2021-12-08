@@ -22,7 +22,7 @@
             android:layout_marginTop="10dp"
             android:text="BẢNG THỐNG KÊ"
             android:textAlignment="center"
-            android:textColor="#FB8662"
+            android:textColor="#EA8484"
             android:textSize="34sp" />
 
         <LinearLayout
@@ -44,11 +44,11 @@
                 android:id="@+id/edt_PhieuNhap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="26dp"
+                android:layout_marginLeft="14dp"
                 android:ems="10"
                 android:enabled="false"
                 android:inputType="textPersonName"
-                android:textColor="#FB8662"
+                android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>
 
@@ -75,7 +75,7 @@
                 android:ems="10"
                 android:enabled="false"
                 android:inputType="textPersonName"
-                android:textColor="#FB8662"
+                android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>
 
@@ -98,11 +98,11 @@
                 android:id="@+id/edt_TienNhap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="15dp"
                 android:ems="10"
                 android:enabled="false"
                 android:inputType="number"
-                android:textColor="#FB8662"
+                android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>
 
@@ -125,11 +125,11 @@
                 android:id="@+id/edt_TienXuat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="2dp"
+                android:layout_marginLeft="22dp"
                 android:ems="10"
                 android:enabled="false"
                 android:inputType="textPersonName"
-                android:textColor="#FB8662"
+                android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>
 

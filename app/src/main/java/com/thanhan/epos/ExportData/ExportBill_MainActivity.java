@@ -30,7 +30,7 @@ import java.util.ArrayList;
 public class ExportBill_MainActivity extends AppCompatActivity {
     Button btn_phieuXuat,btn_quetXuat;
     ArrayList listCode;
-    Boolean ssCode;
+    Boolean ssCode = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,7 +85,7 @@ public class ExportBill_MainActivity extends AppCompatActivity {
                 builder.setPositiveButton("Thêm phiếu Xuất", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        hanghoa.addValueEventListener(new ValueEventListener() {
+                        hanghoa.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 for (DataSnapshot item : snapshot.getChildren()) {
@@ -94,9 +94,7 @@ public class ExportBill_MainActivity extends AppCompatActivity {
                                 for (int i = 0; i < listCode.size(); i++) {
                                     if (macode.equals(listCode.get(i))== true){
                                         ssCode = true;
-                                    }
-                                    else {
-                                        ssCode = false;
+                                        break;
                                     }
                                 }
                                 if (ssCode == true){

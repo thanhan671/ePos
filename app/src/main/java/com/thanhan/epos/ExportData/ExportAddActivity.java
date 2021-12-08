@@ -134,7 +134,7 @@ public class ExportAddActivity extends AppCompatActivity {
         DatabaseReference phieuxuat = database.getReference("PhieuXuat");
         DatabaseReference hanghoa = database.getReference("HangHoa");
 
-        phieuxuat.addListenerForSingleValueEvent(new ValueEventListener() {
+        phieuxuat.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot item : snapshot.getChildren()) {

@@ -34,7 +34,7 @@
         android:layout_marginStart="59dp"
         android:layout_marginTop="16dp"
         android:text="Danh sách tài khoản"
-        android:textColor="#E61515"
+        android:textColor="#EA8484"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.063"
