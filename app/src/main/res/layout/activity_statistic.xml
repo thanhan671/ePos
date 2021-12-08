@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Statistic">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/backgroundedit"
-        android:orientation="vertical"
         android:gravity="center_horizontal"
+        android:orientation="vertical"
         tools:layout_editor_absoluteX="-147dp"
         tools:layout_editor_absoluteY="-365dp">
 
@@ -27,8 +28,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tv_SoPhieuNhap"
@@ -48,15 +49,15 @@
                 android:enabled="false"
                 android:inputType="textPersonName"
                 android:textColor="#FB8662"
-                android:textSize="24sp"
-                />
+                android:textSize="24sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/tv_SoPhieuXuat"
                 android:layout_width="wrap_content"
@@ -65,6 +66,7 @@
                 android:textColor="@color/black"
                 android:textSize="24dp"
                 android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/edt_PhieuXuat"
                 android:layout_width="wrap_content"
@@ -80,8 +82,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tv_SoLuong"
@@ -91,23 +93,25 @@
                 android:textColor="@color/black"
                 android:textSize="24dp"
                 android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/edt_TienNhap"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:enabled="false"
                 android:ems="10"
-                android:textColor="#FB8662"
+                android:enabled="false"
                 android:inputType="number"
+                android:textColor="#FB8662"
                 android:textSize="24sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/tv_TienXuat"
                 android:layout_width="wrap_content"
@@ -116,6 +120,7 @@
                 android:textColor="@color/black"
                 android:textSize="24dp"
                 android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/edt_TienXuat"
                 android:layout_width="wrap_content"
@@ -127,30 +132,34 @@
                 android:textColor="#FB8662"
                 android:textSize="24sp" />
         </LinearLayout>
-<LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:padding="10dp"
-                android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <Button
-                    android:id="@+id/btn_phieunhap"
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:text="Phiếu Nhập"
-                    android:backgroundTint="#EA8484"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"/>
-        <Button
-    android:id="@+id/btn_phieuxuat"
-    android:layout_width="match_parent"
-    android:layout_height="70dp"
-    android:text="Phiếu Xuất "
-    android:backgroundTint="#EA8484"
-    android:textColor="@color/black"
-    android:textStyle="bold"/>
-</LinearLayout>
+                android:id="@+id/btn_phieunhap"
+                android:layout_width="180dp"
+                android:layout_height="70dp"
+                android:backgroundTint="#EA8484"
+                android:layout_marginTop="20dp"
+                android:text="Phiếu Nhập"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_phieuxuat"
+                android:layout_width="180dp"
+                android:layout_height="70dp"
+                android:backgroundTint="#EA8484"
+                android:text="Phiếu Xuất "
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

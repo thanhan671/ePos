@@ -25,7 +25,14 @@
         <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/activity_login.xml" value="0.259375" />
         <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/activity_staff_acount.xml" value="0.259375" />
         <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/activity_staff_main.xml" value="0.259375" />
-
+        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/activity_statistic.xml" value="0.259375" />
+        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/activity_update_import_bill.xml" value="0.259375" />
+        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/activity_view_list_product.xml" value="0.259375" />
+        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/item_pt.xml" value="0.259375" />
+        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/item_spinner.xml" value="0.259375" />
+        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/layout_dialog_update_product.xml" value="0.259375" />
+        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/layout_dialog_update_pt.xml" value="0.259375" />
+        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/product_item.xml" value="0.259375" />
         <entry key="..\:/Users/CCLaptop/Downloads/ePos/app/src/main/res/layout/activity_add_acount_staff.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/CCLaptop/Downloads/ePos/app/src/main/res/layout/activity_add_product.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/CCLaptop/Downloads/ePos/app/src/main/res/layout/activity_add_product_type.xml" value="0.25416666666666665" />
@@ -51,15 +58,6 @@
         <entry key="..\:/Users/CCLaptop/Downloads/ePos/app/src/main/res/layout/layout_dialog_update_product.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/CCLaptop/Downloads/ePos/app/src/main/res/layout/layout_dialog_update_pt.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/CCLaptop/Downloads/ePos/app/src/main/res/layout/product_item.xml" value="0.25416666666666665" />
-
-        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/activity_update_import_bill.xml" value="0.259375" />
-        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/activity_view_list_product.xml" value="0.259375" />
-        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/item_pt.xml" value="0.259375" />
-        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/item_spinner.xml" value="0.259375" />
-        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/layout_dialog_update_product.xml" value="0.259375" />
-        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/layout_dialog_update_pt.xml" value="0.259375" />
-        <entry key="..\:/ProjectMobile/ePos/app/src/main/res/layout/product_item.xml" value="0.259375" />
-
         <entry key="..\:/Users/CCLaptop/Downloads/ePossss/app/src/main/res/layout/activity_add_acount_staff.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/CCLaptop/Downloads/ePossss/app/src/main/res/layout/activity_add_product.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/CCLaptop/Downloads/ePossss/app/src/main/res/layout/activity_add_product_type.xml" value="0.25416666666666665" />
