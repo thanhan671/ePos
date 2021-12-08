@@ -246,19 +246,18 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/btn_addAcc_cancel"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="HỦY"
-                android:backgroundTint="#EA8484"
-                android:textColor="@color/black"
-                android:textSize="24sp" />
-
-            <Button
                 android:id="@+id/btn_addAcc_add"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:text="Thêm"
+                android:backgroundTint="#EA8484"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+            <Button
+                android:id="@+id/btn_addAcc_cancel"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="HỦY"
                 android:backgroundTint="#EA8484"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
