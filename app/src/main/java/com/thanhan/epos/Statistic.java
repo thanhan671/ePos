@@ -20,12 +20,13 @@ import com.thanhan.epos.ExportData.ListExportActivity;
 import java.util.Map;
 
 public class Statistic extends AppCompatActivity {
-private TextView mTotalNhap;
-private TextView mSoPhieuNhap;
-private TextView mSoPhieuXuat;
-private TextView mTotalXuat;
-//firebase
+    private TextView mTotalNhap;
+    private TextView mSoPhieuNhap;
+    private TextView mSoPhieuXuat;
+    private TextView mTotalXuat;
+    //firebase
     private DatabaseReference mDatabase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +37,9 @@ private TextView mTotalXuat;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int sum = 0;
-                for(DataSnapshot DS : snapshot.getChildren()){
-                    Map<String,Object> map= (Map<String, Object>) DS.getValue();
-                    Object thanhtien= map.get("thanhTien");
+                for (DataSnapshot DS : snapshot.getChildren()) {
+                    Map<String, Object> map = (Map<String, Object>) DS.getValue();
+                    Object thanhtien = map.get("thanhTien");
                     int TValue = Integer.parseInt(String.valueOf(thanhtien));
                     sum += TValue;
 
@@ -56,9 +57,9 @@ private TextView mTotalXuat;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 int sum = 0;
-                for(DataSnapshot DS : snapshot.getChildren()){
-                    Map<String,Object> map= (Map<String, Object>) DS.getValue();
-                    Object thanhtien= map.get("thanhTien");
+                for (DataSnapshot DS : snapshot.getChildren()) {
+                    Map<String, Object> map = (Map<String, Object>) DS.getValue();
+                    Object thanhtien = map.get("thanhTien");
                     int TValue = Integer.parseInt(String.valueOf(thanhtien));
                     sum += TValue;
 
@@ -78,7 +79,7 @@ private TextView mTotalXuat;
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot DtS:snapshot.getChildren()){
+                for (DataSnapshot DtS : snapshot.getChildren()) {
                     mSoPhieuNhap.setText(String.valueOf(DtS.getKey()));
                 }
             }
@@ -93,7 +94,7 @@ private TextView mTotalXuat;
         query1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot DtX:snapshot.getChildren()){
+                for (DataSnapshot DtX : snapshot.getChildren()) {
                     mSoPhieuXuat.setText(String.valueOf(DtX.getKey()));
                 }
             }
@@ -109,19 +110,26 @@ private TextView mTotalXuat;
                 Intent intent = new Intent(Statistic.this, ListImport.class);
                 startActivity(intent);
             }
-        });findViewById(R.id.btn_phieuxuat).setOnClickListener(new View.OnClickListener() {
+        });
+        findViewById(R.id.btn_phieuxuat).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Statistic.this, ListExportActivity.class);
                 startActivity(intent);
             }
         });
+        findViewById(R.id.btn_thoat).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void matching() {
-        mSoPhieuNhap = (TextView)findViewById(R.id.edt_PhieuNhap);
-        mTotalNhap = (TextView)findViewById(R.id.edt_TienNhap);
-        mSoPhieuXuat = (TextView)findViewById(R.id.edt_PhieuXuat);
-        mTotalXuat = (TextView)findViewById(R.id.edt_TienXuat);
+        mSoPhieuNhap = (TextView) findViewById(R.id.edt_PhieuNhap);
+        mTotalNhap = (TextView) findViewById(R.id.edt_TienNhap);
+        mSoPhieuXuat = (TextView) findViewById(R.id.edt_PhieuXuat);
+        mTotalXuat = (TextView) findViewById(R.id.edt_TienXuat);
     }
 }

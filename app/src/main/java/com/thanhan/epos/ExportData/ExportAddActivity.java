@@ -136,10 +136,10 @@ public class ExportAddActivity extends AppCompatActivity {
         String sngay= new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference phieunhap = database.getReference("PhieuNhap");
+        DatabaseReference phieuxuat = database.getReference("PhieuXuat");
         DatabaseReference hanghoa = database.getReference("HangHoa");
 
-        phieunhap.addValueEventListener(new ValueEventListener() {
+        phieuxuat.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot item : snapshot.getChildren()) {

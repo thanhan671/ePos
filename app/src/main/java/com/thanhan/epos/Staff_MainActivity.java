@@ -2,6 +2,7 @@ package com.thanhan.epos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.appsearch.GetByDocumentIdRequest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -44,7 +45,8 @@ public class Staff_MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_nv_thongke).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getApplicationContext(), Statistic.class);
+                startActivity(intent);
             }
         });
     }
