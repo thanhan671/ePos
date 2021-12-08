@@ -92,7 +92,7 @@ public class ExportBill_MainActivity extends AppCompatActivity {
                                     listCode.add(item.getKey());
                                 }
                                 for (int i = 0; i < listCode.size(); i++) {
-                                    if (macode.equals(listCode.get(i))== true){
+                                    if (macode.equals(String.valueOf(listCode.get(i)))){
                                         ssCode = true;
                                         break;
                                     }
