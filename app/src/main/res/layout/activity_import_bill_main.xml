@@ -18,8 +18,8 @@
 
             <ImageButton
                 android:id="@+id/btn_back"
-                android:layout_width="20dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
                 app:srcCompat="@drawable/back"
@@ -60,7 +60,7 @@
 
                 <Button
                     android:id="@+id/btn_quetnhap"
-                    android:layout_width="250dp"
+                    android:layout_width="200dp"
                     android:layout_height="70dp"
                     android:text="QUÉT MÃ HÀNG"
                     android:backgroundTint="#EA8484"
@@ -68,7 +68,7 @@
                     android:textStyle="bold"/>
                 <Button
                     android:id="@+id/btn_phieunhap"
-                    android:layout_width="250dp"
+                    android:layout_width="200dp"
                     android:layout_height="70dp"
                     android:text="PHIẾU NHẬP"
                     android:backgroundTint="#EA8484"

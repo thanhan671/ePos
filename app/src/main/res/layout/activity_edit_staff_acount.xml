@@ -4,95 +4,245 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundedit"
     tools:context=".EditStaffAcountActivity">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="CHỈNH SỬA TÀI KHOẢN NHÂN VIÊN"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FF0000"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/scrV_editAcc"
-        android:layout_width="289dp"
+        android:layout_width="match_parent"
         android:layout_height="468dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498">
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.188">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/et_editAcc_id"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="ID"
-                android:inputType="textPersonName"
-                android:textSize="24sp" />
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/et_editAcc_name"
+                <TextView
+                    android:id="@+id/tv_ID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID:"
+                    android:textColor="@color/black"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_editAcc_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_marginLeft="90dp"
+                    android:hint="ID"
+                    android:inputType="textPersonName"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Họ Tên"
-                android:inputType="textPersonName"
-                android:textSize="24sp" />
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/et_editAcc_address"
+                <TextView
+                    android:id="@+id/tv_ten"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Họ và Tên:"
+                    android:textColor="@color/black"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_editAcc_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Họ Tên"
+                    android:inputType="textPersonName"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Địa chỉ"
-                android:inputType="textPersonName"
-                android:textSize="24sp" />
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/et_editAcc_gender"
+                <TextView
+                    android:id="@+id/tv_diachi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Địa chỉ:"
+                    android:textColor="@color/black"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_editAcc_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_marginLeft="37dp"
+                    android:hint="Địa chỉ"
+                    android:inputType="textPersonName"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Giới tính"
-                android:inputType="textPersonName"
-                android:textSize="24sp" />
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/et_editAcc_mobile"
+                <TextView
+                    android:id="@+id/tv_gioitinh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Giới tính:"
+                    android:textColor="@color/black"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_editAcc_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_marginLeft="20dp"
+                    android:hint="Giới tính"
+                    android:inputType="textPersonName"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Số điện thoại"
-                android:inputType="phone"
-                android:textSize="24sp" />
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/et_editAcc_email"
+                <TextView
+                    android:id="@+id/tv_sdt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SĐT:"
+                    android:textColor="@color/black"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_editAcc_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_marginLeft="65dp"
+                    android:hint="Số điện thoại"
+                    android:inputType="phone"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Email"
-                android:inputType="textWebEmailAddress"
-                android:textSize="24sp" />
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/et_editAcc_username"
+                <TextView
+                    android:id="@+id/tv_mail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email:"
+                    android:textColor="@color/black"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_editAcc_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_marginLeft="50dp"
+                    android:hint="Email"
+                    android:inputType="textWebEmailAddress"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Tài khoản"
-                android:inputType="textPersonName"
-                android:textSize="24sp" />
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/et_editAcc_password"
+                <TextView
+                    android:id="@+id/tv_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Username:"
+                    android:textColor="@color/black"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_editAcc_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Tài khoản"
+                    android:inputType="textPersonName"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Mật khẩu"
-                android:inputType="textPersonName"
-                android:textSize="24sp" />
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:id="@+id/tv_matkhau"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mật khẩu:"
+                    android:textColor="@color/black"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_editAcc_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_marginLeft="10dp"
+                    android:hint="Mật khẩu"
+                    android:inputType="textPersonName"
+                    android:textSize="24sp" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
@@ -100,34 +250,42 @@
         android:id="@+id/btn_editAcc_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="20dp"
         android:text="Hủy"
+        android:backgroundTint="#EA8484"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_editAcc_update" />
+        app:layout_constraintEnd_toStartOf="@+id/btn_editAcc_update"
+        app:layout_constraintTop_toBottomOf="@+id/scrV_editAcc"
+        app:layout_constraintVertical_bias="0.253" />
 
     <Button
         android:id="@+id/btn_editAcc_update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="28dp"
         android:layout_weight="1"
         android:text="Sửa"
+        android:backgroundTint="#EA8484"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrV_editAcc"
+        app:layout_constraintVertical_bias="0.25" />
 
     <Button
         android:id="@+id/btn_editAcc_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginBottom="48dp"
         android:text="Xóa"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_editAcc_cancel"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        android:backgroundTint="#EA8484"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/scrV_editAcc"
+        app:layout_constraintVertical_bias="0.25" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

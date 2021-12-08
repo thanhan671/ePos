@@ -143,7 +143,7 @@
             android:id="@+id/btn_addExport"
             android:layout_width="180dp"
             android:layout_height="70dp"
-            android:backgroundTint="#ED9459"
+            android:backgroundTint="#EA8484"
             android:text="THÊM"
             android:layout_marginTop="50dp"
             android:textAlignment="center"
@@ -155,7 +155,7 @@
             android:layout_width="180dp"
             android:layout_height="70dp"
             android:text="HỦY"
-            android:backgroundTint="#F1975B"
+            android:backgroundTint="#EA8484"
             android:textColor="@color/black"
             android:textStyle="bold"/>
 
