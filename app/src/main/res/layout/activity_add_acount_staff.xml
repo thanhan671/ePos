@@ -14,7 +14,7 @@
         android:layout_marginTop="4dp"
         android:text="THÊM TÀI KHOẢN NHÂN VIÊN"
         android:textAlignment="center"
-        android:textColor="#F10707"
+        android:textColor="#EA8484"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
